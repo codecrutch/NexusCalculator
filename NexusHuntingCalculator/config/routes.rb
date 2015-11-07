@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :caves
+  devise_for :users
   resources :caves
   resources :creatures
   root 'caves#index'
