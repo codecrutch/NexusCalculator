@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  creaturename: MyString
+  vita: 1
+  ac: 1
+  cave_id: 1
+
+two:
+  creaturename: MyString
+  vita: 1
+  ac: 1
+  cave_id: 1

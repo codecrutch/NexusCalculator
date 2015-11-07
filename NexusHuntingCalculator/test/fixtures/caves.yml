@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cavename: MyString
+  creatures: MyString
+  requirements: MyString
+  coordinates: MyString
+  boss: MyString
+  drops: MyString
+
+two:
+  cavename: MyString
+  creatures: MyString
+  requirements: MyString
+  coordinates: MyString
+  boss: MyString
+  drops: MyString
