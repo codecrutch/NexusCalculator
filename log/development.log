@@ -1,0 +1,1 @@
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m

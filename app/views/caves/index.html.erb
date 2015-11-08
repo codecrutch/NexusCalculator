@@ -33,5 +33,7 @@
 </table>
 
 <br>
-
+<% if user_signed_in? && current_user.id == 1 %>
+<p> WORKED </p>
 <%= link_to 'New Cave', new_cave_path %>
+<% end %>
