@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :caves
   resources :creatures
-  root 'caves#index'
+  if Rails.env.development?
+    root 'home#index'
+  else
+    root 'caves#index'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
