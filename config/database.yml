@@ -20,7 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  host: heroku
+  host: localhost
   username: seanmsnyder
   password: seanmsnyder_password
 development:
@@ -82,6 +82,7 @@ test:
 #
 production:
   <<: *default
+  host: nexushunting.heroku.com
   database: NexusHuntingCalculator_production
   username: NexusHuntingCalculator
   password: <%= ENV['NEXUSHUNTINGCALCULATOR_DATABASE_PASSWORD'] %>
