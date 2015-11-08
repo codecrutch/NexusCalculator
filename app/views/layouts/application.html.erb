@@ -15,15 +15,12 @@
 		<% end %>
 	</ul>
 
-<p id="alert" class="alert"><%= alert %></p>
-
-
 <%= yield %>
 
 <script type="text/javascript">
-	var alert = document.getElementById("alert");
+	var notice = document.getElementById("notice");
 	var id = setTimeout(function(){
-		alert.style.opacity = 0;
+		notice.style.opacity = 0;
 	}, 2000);
 
 
