@@ -33,14 +33,7 @@
 </table>
 
 <br>
-<% if user_signed_in? && current_user.id == 1 %>
+<% if user_signed_in? && current_user.id == 5 %>
 <p> WORKED </p>
 <%= link_to 'New Cave', new_cave_path %>
-<% end %>
-
-<% if user_signed_in? %>
-<p> Didn't Work </p>
-<h1> <%= current_user %></h1>
-<h1> <%= current_user.id %></h1>
-<h1> <%= current_user.email %></h1>
 <% end %>
