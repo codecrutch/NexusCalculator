@@ -36,7 +36,9 @@
 <% if user_signed_in? && current_user.id == 1 %>
 <p> WORKED </p>
 <%= link_to 'New Cave', new_cave_path %>
-<% else %>
+<% end %>
+
+<% if user_signed_in? %>
 <p> Didn't Work </p>
 <h1> <%= current_user %></h1>
 <h1> <%= current_user.id %></h1>
