@@ -1,3 +1,21 @@
 // Place all the styles related to the Caves controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+td {
+	background-color: tan;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Helvetica;
+	color: red;
+	padding: 10px 10px 10px 10px;
+}
+
+td:hover {
+	color: yellow;
+}
+
+tr {
+	background-color: brown;
+	color: white;
+}

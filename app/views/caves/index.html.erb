@@ -2,16 +2,22 @@
 
 <h1>Listing Caves</h1>
 
-<table>
+<table border="10">
   <thead>
     <tr>
-      <th>Cavename</th>
+      <th>Cave</th>
       <th>Creatures</th>
       <th>Requirements</th>
       <th>Coordinates</th>
       <th>Boss</th>
       <th>Drops</th>
-      <th colspan="3"></th>
+      <% if Rails.env.development? || user_signed_in? && current_user.id == 5  %>
+        <% b = "" %>
+        <% if Rails.env.development? %>
+        <% b = "(Development)" %>
+        <% end %>
+        <th colspan="3">Admin<%= b %></th>
+      <% end %>
     </tr>
   </thead>
 
@@ -24,16 +30,19 @@
         <td><%= cave.coordinates %></td>
         <td><%= cave.boss %></td>
         <td><%= cave.drops %></td>
+
+      <% if Rails.env.development? || user_signed_in? && current_user.id == 5 %>
         <td><%= link_to 'Show', cave %></td>
         <td><%= link_to 'Edit', edit_cave_path(cave) %></td>
         <td><%= link_to 'Destroy', cave, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% end %>
+
+    </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<% if user_signed_in? && current_user.id == 5 %>
-<p> WORKED </p>
+<% if user_signed_in? && current_user.email == "sean_snyder@comcast.net" %>
 <%= link_to 'New Cave', new_cave_path %>
 <% end %>
