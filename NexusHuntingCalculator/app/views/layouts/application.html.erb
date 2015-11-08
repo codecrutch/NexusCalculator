@@ -7,12 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<ul>
+		<% if user_signed_in? %>
+		<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+		<% else %>
+		<li><%= link_to "Sign in", user_session_path %></li>
+		<% end %>
+	</ul>
 
-<p class="notice"><%= notice %></p> 
+<p id="alert" class="alert"><%= alert %></p>
 
-<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
+<script type="text/javascript">
+	var a = document.getElementById("notice");
+	var b = document.getElementById("alert");
+	var id = setTimeout(function(){
+		a.style.opacity = 0;
+		b.style.opacity = 0;
+	}, 2000);
+
+
+</script>
 </body>
 </html>
