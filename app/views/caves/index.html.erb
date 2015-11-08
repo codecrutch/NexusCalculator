@@ -38,5 +38,7 @@
 <%= link_to 'New Cave', new_cave_path %>
 <% else %>
 <p> Didn't Work </p>
-<script> alert(current_user); </script>
+<h1> <%= current_user %></h1>
+<h1> <%= current_user.id %></h1>
+<h1> <%= current_user.email %></h1>
 <% end %>
