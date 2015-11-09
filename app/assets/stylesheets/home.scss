@@ -6,8 +6,14 @@ $vita: #A34646; // Vita Color
 $mana: #429CF5; // Mana Color
 
 body {
-  margin: 10px 20px 20px 20px;
   font-family: impact;
+}
+
+#cave-layout button {
+	width: 100%;
+}
+#caves.dropdown-menu {
+  min-width: 100%;
 }
 
 #creatureSelected {
@@ -54,6 +60,22 @@ img {
 
 .mana {
   color: $mana;
+}
+
+.subpath {
+	display: none;
+}
+
+.warrior-spells {
+	display: none;
+}
+
+.rogue-spells {
+	display: none;
+}
+
+.poet-spells {
+	display: none;
 }
 
 .title {

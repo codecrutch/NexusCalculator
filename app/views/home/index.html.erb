@@ -1,9 +1,50 @@
 <% if user_signed_in? %>
-<div class="fluid-container">
+<div class="container">
 <div class="row text-center hidden-xs">
   <h1 id="member">Thank you for signing in.  Feel free to look around.</h1>
   <p>Let us know if you want us to add anything to the application</p>
 </div>
+
+<section id="cave-layout">
+  
+      <div class="row">
+        <div class="container col-xs-12 blue">
+          <div class="dropdown">
+            <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Caves
+              <span class="caret"></span></button>
+            <ul id="caves" class="dropdown-menu">
+              <li><a href="#">Assassin</a></li>
+              <li><a href="#">Magus</a></li>
+              <li><a href="#">Hillman</a></li>
+              <li><a href="#">Hunter</a></li>
+              <li><a href="#">Anchorite</a></li>
+              <li><a href="#">Wind</a>
+              </li>
+              <li><a href="#">Dread</a></li>
+              
+              <li><a href="#">Greyhand</a></li>
+              
+              <li><a href="#">Bandit</a></li>
+              
+              <li><a href="#">Earth</a></li>
+              
+              <li><a href="#">Water</a></li>
+            </ul>
+          </div>
+        <div class="col-xs-2 text-center">
+          <h2 id="cave">Anchorite</h2>
+          <h4 id="creature">Drone</h4>
+        </div>
+        <!-- Add in the creatures dynamically -->
+        <div class="col-xs-10">
+          <div id="creatures" class="row">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
+
 <section id="calculator">
   <div class="row">
     <div class="container col-xs-12 red">
@@ -74,14 +115,29 @@
             <button id="spellTitle" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Spells
               <span class="caret"></span></button>
             <ul id="spells" class="dropdown-menu">
-              <li class="dropdown-header">Mage</li>
-              <li><a href="#">Hellfire</a></li>
-              <li><a href="#">Sam Hellfire</a></li>
-              <li><a href="#">Inferno</a></li>
-              <li><a href="#">Sa Hellfire</a></li>
-              <li class="dropdown-header">Warrior</li>
-              <li class="dropdown-header">Rogue</li>
-              <li class="dropdown-header">Poet</li>
+              <li class="mage-spells dropdown-header">Mage</li>
+                <li class="mage-spells"><a href="#">Hellfire</a></li>
+                <li class="mage-spells"><a href="#">Sam Hellfire</a></li>
+                <li class="mage-spells"><a href="#">Inferno</a></li>
+                <li class="mage-spells"><a href="#">Sa Hellfire</a></li>
+                <li class="warrior-spells dropdown-header">Warrior</li>
+                <li class="warrior-spells"><a href="#">Slash</a></li>
+                <li class="warrior-spells"><a href="#">Beserk</a></li>
+                <li class="warrior-spells"><a href="#">Whirlwind</a></li>
+                <li class="warrior-spells"><a href="#">Assault</a></li>
+                <li class="warrior-spells"><a href="#">Karak</a></li>
+                <li class="warrior-spells"><a href="#">Warrior Sa</a></li>
+                <li class="warrior-spells subpath"><a href="#">Rend</a></li>
+                <li class="warrior-spells subpath"><a href="#">Townie</a></li>
+              <li class="rogue-spells dropdown-header">Rogue</li>
+                <li class="rogue-spells"><a href="#">Desperate Attack</a></li>
+                <li class="rogue-spells"><a href="#">Lethal Strike</a></li>
+                <li class="rogue-spells"><a href="#">Sam Kae</a></li>
+                <li class="rogue-spells subpath"><a href="#">Rogue Sa</a></li>
+                <li class="rogue-spells subpath"><a href="#">Assassinate</a></li>
+              <li class="poet-spells dropdown-header">Poet</li>
+                <li class="poet-spells"><a href="#">Retribution</a></li>
+                <li class="poet-spells subpath"><a href="#">Son-Kal</a></li>
             </ul>
           </div>
         </div>
