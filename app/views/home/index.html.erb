@@ -1,7 +1,98 @@
 <% if user_signed_in? %>
+<div class="fluid-container">
+<div class="row text-center hidden-xs">
   <h1 id="member">Thank you for signing in.  Feel free to look around.</h1>
   <p>Let us know if you want us to add anything to the application</p>
-  <button class="btn btn-primary">Thank You Kindly</button>
+</div>
+<section id="calculator">
+  <div class="row">
+    <div class="container col-xs-12 red">
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h2 class="title">Nexus Hunting Calculator</h2>
+          <h4>Please enter your character's stats.</h4>
+        </div>
+      </div>
+
+      <div class="row hidden-xs">
+      <div id="mgw" class="form-group">
+        <div class="col-xs-12 col-md-2 col-large-1">
+          <div class="input-group">
+          <span class="input-group-addon">AC</span>
+          <input class="form-control" id="charAC" placeholder="AC" value="-95" size="3">
+        </div>
+        </div>
+        <div class="col-xs-12 col-md-2 col-large-1">
+          <div class="input-group">
+            <span class="input-group-addon">Might</span>
+           <input class="form-control" id="charMight" placeholder="Might" value="135" size="3">
+         </div>
+       </div>
+           <div class="col-xs-12 col-md-2 col-large-1">
+            <div class="input-group">
+            <span class="input-group-addon">Grace</span>
+           <input class="form-control" id="charGrace" placeholder="Grace" value="135" size="3">
+         </div>
+           </div>
+           <div class="col-xs-12 col-md-2 col-large-1">
+            <div class="input-group">
+            <span class="input-group-addon">Will</span>
+           <input class="form-control" id="charWill" placeholder="Will" value="135" size="3">
+         </div>
+           </div>
+          </div>
+      </div>
+
+    </br>
+
+      <div class="row">
+        <div class="form-group">
+        <div class="col-md-8 col-large-12">
+          <div class="input-group">
+            <span class="input-group-addon vita">Vita</span>
+            <input type="text" class="form-control bfh-number" id="charVita" placeholder="Character Vita" data-min="1000" data-max="99999999" size="19">
+          </div>
+        </div>
+
+        <div class="col-md-8 col-large-12">
+         <div class="input-group">
+            <span class="input-group-addon mana">Mana</span>
+            <input type="text" class="form-control bfh-number" id="charMana" placeholder="Character Mana" data-min="1000" data-max="99999999" size="19">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+      <div class="row">
+        <div class="col-xs-12">
+          <p></p>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-xs-1 dropdown">
+            <button id="spellTitle" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Spells
+              <span class="caret"></span></button>
+            <ul id="spells" class="dropdown-menu">
+              <li><a href="#">Hellfire</a></li>
+              <li><a href="#">Sam Hellfire</a></li>
+              <li><a href="#">Inferno</a></li>
+              <li><a href="#">Sa Hellfire</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+         <div class="col-md-7 col-large-12">
+          <h3>Damage: <span id="damageOutput"></span>
+        </h3>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+</div>
 <% else %>
   <h1>Please sign in to get full functionality!</h1>
   <p>By signing up you get access to:</p>

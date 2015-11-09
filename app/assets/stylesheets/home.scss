@@ -1,3 +1,67 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin: 10px 20px 20px 20px;
+  font-family: impact;
+}
+
+#creatureSelected {
+  position: relative;
+  top: 30px;
+  left: 20px;
+}
+
+#spellCasted {
+  position: relative;
+  top: -100px;
+  left: -35px;
+}
+
+#calculator label {
+	padding: 10px 10px 10px 0px;
+	margin: 0px 10px 0px 0px;
+}
+
+img {
+  margin: 0px 0px 0px 0px;
+}
+
+.red {
+  border: dashed;
+  border-color: red;
+}
+.blue {
+  border: dashed;
+  border-width: 5px;
+  border-color: blue;
+}
+
+.form-group span {
+	width: 80px !important;
+}
+#mgw span {
+	width: 60px !important;
+}
+
+.vita {
+  color: #A34646;
+}
+
+.mana {
+  color: #429CF5;
+}
+
+.title {
+  font-family: impact;
+}
+
+button {
+  color: white !important;
+  font-family: "Oswald";
+}
+
+p, h2, h3, h4 {
+  font-family: "Oswald", fantasy, Georgia;
+}
