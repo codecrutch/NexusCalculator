@@ -18,4 +18,11 @@
 
 $(document).ready(function() {
   	$("#notice").fadeOut(3000);
-});
+
+  	$("#member-sign-in").slideDown(5000);
+  	//$("#member-sign-in").slideDown(5000);
+  	var ok = setInterval(function(e){
+	  	$("#member-sign-in").slideUp(2000), 150000
+	 });
+
+ });

@@ -60,7 +60,6 @@ $(document).ready(function() {
         break;
     }
     $("#damageOutput").text(Math.ceil((player.vita * vitaMultiplier) + (player.mana * manaMultiplier)));
-    setSpellGraphic("http://www.nexusatlas.com/photo/spells60/ohaenghf.gif");
   });
 
 });

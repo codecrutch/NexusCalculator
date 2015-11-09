@@ -15,3 +15,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "home";
+
+.footer-top {
+    background: #252C34;
+    border-bottom: 1px solid #414f5a;
+    color: #A1A1A1;
+    padding: 50px 0;
+    position:absolute;
+	bottom:68px;
+	width:100%;
+}
+
+.footer-bottom {
+    background: #272727;
+    color: #888;
+    line-height: 38px;
+    padding: 15px;
+    position:absolute;
+	bottom:0;
+	width:100%;
+}
