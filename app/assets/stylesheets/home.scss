@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$vita: #A34646; // Vita Color
+$mana: #429CF5; // Mana Color
+
 body {
   margin: 10px 20px 20px 20px;
   font-family: impact;
@@ -46,11 +49,11 @@ img {
 }
 
 .vita {
-  color: #A34646;
+  color: $vita;
 }
 
 .mana {
-  color: #429CF5;
+  color: $mana;
 }
 
 .title {
