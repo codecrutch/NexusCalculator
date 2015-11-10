@@ -16,17 +16,36 @@
 @import "bootstrap";
 @import "home";
 
+html {
+	height: 100%;
+}
+body {
+	z-index: 1; // z-index to keep content behind footer
+	position: relative;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-attachment: fixed;
+	background: #93DCE3;
+	background: -webkit-linear-gradient(#93DCE3 20%, #D9F0F2 100%);
+	background: -o-linear-gradient(#93DCE3 20%, #D9F0F2 100%);
+	background: -moz-linear-gradient(#93DCE3 20%, #D9F0F2 100%);
+	background: linear-gradient( #93DCE3 20%, #D9F0F2 100%);
+}
+
 .footer-top {
+	z-index: 9999;
     background: #252C34;
     border-bottom: 1px solid #414f5a;
     color: #A1A1A1;
-    padding: 50px 0;
+    padding: 0px 0;
     position:absolute;
 	bottom:68px;
 	width:100%;
 }
 
 .footer-bottom {
+	z-index: 9999;
     background: #272727;
     color: #888;
     line-height: 38px;
