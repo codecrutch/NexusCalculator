@@ -14,7 +14,7 @@ $(document).ready(function() {
   var manaMultiplier = 0;
   var vitaMultiplier = 0;
 
-  $("input").on('input', function(e) {
+  $("input").on('input', function() {
     getStats();
 
     if($("button#spellTitle:contains('Spells')").length > 0) { 
@@ -22,19 +22,19 @@ $(document).ready(function() {
     } else {
       getStats();
       $("#damageOutput").text(Math.ceil((player.vita * vitaMultiplier) + (player.mana * manaMultiplier)));
-    };
+    }
     /*alert("Players stats are:\nVita: " + player["vita"] +
       "\nMana: " + player["mana"] +
       "\nAC: " + player["ac"]); */
   });
 
 
-  $("#caves li a").click(function(e) {
+  $("#caves li a").click(function() {
     $("#cave").text(this.innerHTML);
     AJAXloadCave(this.innerHTML);
   });
 
-  $("#spells li a").click(function(e) {
+  $("#spells li a").click(function() {
 
     getStats();
 
@@ -68,39 +68,39 @@ function getStats() {
   getVita();
   getMana();
   getAC();
-};
+}
 
 function getVita() {
   player.vita = $("#charVita").val();
-};
+}
 
 function getMana() {
   player.mana = $("#charMana").val();
-};
+}
 
 function getAC() {
   player.ac = $("#charAC").val();
-};
+}
 
 function setVita(number) {
   player.vita = number;
   $("#charVita").val(number);
   //alert(player.vita);
-};
+}
 
 function setMana(number) {
   player.mana = number;
   $("#charMana").val(number);
-};
+}
 
 function setAC(number) {
   player.ac = number;
   $("#charAC").val(number);
-};
+}
 
 function setSpellGraphic(source) {
   $("#spellCasted").attr("src", source);
-};
+}
 
 function AJAXloadCave(cave) {
   removeCreatures();
@@ -128,10 +128,10 @@ function AJAXloadCave(cave) {
       creature = "fists1";
   }
   for(i = 0; i < 1; i++) {
-  $("#creatures").append("<div class='col-xs-1'><div id='drone'><img id='creatureSelected' src='http://www.nexusatlas.com/photo/monster60/" + creature + ".gif'><img id='spellCasted' src='http://www.nexusatlas.com/photo/spells60/mingkenhellfire.gif'</div></div>")
-  };
-};
+  $("#creatures").append("<div class='col-xs-1'><div id='drone'><img id='creatureSelected' src='http://www.nexusatlas.com/photo/monster60/" + creature + ".gif'><img id='spellCasted' src='http://www.nexusatlas.com/photo/spells60/mingkenhellfire.gif'</div></div>");
+  }
+}
 
 function removeCreatures() {
   $("#creatures").empty();
-};
+}

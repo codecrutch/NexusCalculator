@@ -19,7 +19,6 @@
 $(document).ready(function() {
   	$("#notice").fadeOut(3000);
   	$("#footer-section").fadeOut(10000);
-  	});
 
   /*	$("#member-sign-in").slideDown(5000);
   	//$("#member-sign-in").slideDown(5000);
