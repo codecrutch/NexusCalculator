@@ -9,6 +9,8 @@
 </head>
 
 <body>
+
+  <!-- Navigation Bar -->
   <section id="navigation-section">
     <nav role="navigation" class="navbar navbar-inverse">
       <div class="navbar-header">
@@ -47,14 +49,13 @@
     </nav>
   </section>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+<!-- Content -->
 
+  <section id="content">
+    <%= yield %>
+  </section>
+
+<!-- Footer -->
   <section id="footer-section" class="navbar navbar-fixed">
     <div class="footer-bottom">
       <div class="container">

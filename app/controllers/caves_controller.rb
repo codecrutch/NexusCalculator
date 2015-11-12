@@ -4,7 +4,7 @@ class CavesController < ApplicationController
   # GET /caves
   # GET /caves.json
   def index
-    @caves = Cave.all
+      @caves = Cave.all
   end
 
   # GET /caves/1
@@ -19,6 +19,15 @@ class CavesController < ApplicationController
 
   # GET /caves/1/edit
   def edit
+  end
+
+  def test
+    @cave = Cave.find(params[:cave_id])
+
+    respond_to do |format|
+      format.html { redirect_to @cave }
+      format.js
+    end
   end
 
   # POST /caves
@@ -69,6 +78,6 @@ class CavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cave_params
-      params.require(:cave).permit(:cavename, :requirements, :coordinates, :boss, :drops)
+      params.require(:cave).permit(:cavename, :id, :some_parameter, :requirements, :coordinates, :boss, :drops)
     end
 end

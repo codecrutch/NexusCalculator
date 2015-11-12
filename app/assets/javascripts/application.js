@@ -25,4 +25,24 @@ $(document).ready(function() {
 	 }); 
   */
 
+ 	/* $.ajax({
+       type: "GET",
+       url: "caves",
+       dataType: "json",
+       data: { 'cave_id' : 1},
+       cache: false,
+       contentType: "application/json",
+       success: function(data) {
+
+            $.each(data, function(i,cave){
+                 $('#creatures').append(
+                 	'<li>' + cave.cavename + '</li>' +
+                 	'<p>' + cave.requirements + '</p>'
+                 	);
+             });
+       }
+    });
+	*/
+    
+
  });

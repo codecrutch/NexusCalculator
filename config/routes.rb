@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :caves
+  resources :caves do
+    collection do
+      get 'test'
+    end
+  end
+
   resources :creatures
   root 'home#index'
 

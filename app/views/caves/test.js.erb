@@ -1,0 +1,6 @@
+//Empty creatures div
+$("#creatures").empty();
+$("#cave").html("<%= escape_javascript(@cave.cavename) %><p>");
+<% @cave.creature.each do |c| %>
+$("#creatures").append("<div class='col-xs-3 col-sm-2 col-md-1'>" + '<%= escape_javascript(image_tag(c.imagelocation)) %>' + "</div>");
+<% end %>
