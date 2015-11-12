@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :caves do
     collection do
-      get 'test'
+      get 'getcave'
     end
   end
 

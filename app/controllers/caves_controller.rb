@@ -21,7 +21,7 @@ class CavesController < ApplicationController
   def edit
   end
 
-  def test
+  def getcave
     @cave = Cave.find(params[:cave_id])
 
     respond_to do |format|
