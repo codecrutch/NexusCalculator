@@ -6,8 +6,16 @@
 </p>
 
 <p>
-  <strong>Creatures:</strong>
-  <%= @cave.creatures %>
+  <div class="panel panel-success">
+    <div class="panel-header">
+      <strong>Creatures:</strong>
+    </div>
+    <div class="panel-body">
+  <% @cave.creature.each do |e| %>
+  <p><%= e.creaturename %></p>
+  <% end %>
+</div>
+</div>
 </p>
 
 <p>

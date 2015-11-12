@@ -1,48 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Caves</h1>
-
-<table border="10">
-  <thead>
-    <tr>
-      <th>Cave</th>
-      <th>Creatures</th>
-      <th>Requirements</th>
-      <th>Coordinates</th>
-      <th>Boss</th>
-      <th>Drops</th>
-      <% if Rails.env.development? || user_signed_in? && current_user.id == 5  %>
-        <% b = "" %>
-        <% if Rails.env.development? %>
-        <% b = "(Development)" %>
-        <% end %>
-        <th colspan="3">Admin<%= b %></th>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
+<h1>Caves</h1>
     <% @caves.each do |cave| %>
-      <tr>
-        <td><%= cave.cavename %></td>
-        <td><%= cave.creatures %></td>
-        <td><%= cave.requirements %></td>
-        <td><%= cave.coordinates %></td>
-        <td><%= cave.boss %></td>
-        <td><%= cave.drops %></td>
-
-      <% if Rails.env.development? || user_signed_in? && current_user.id == 5 %>
-        <td><%= link_to 'Show', cave %></td>
-        <td><%= link_to 'Edit', edit_cave_path(cave) %></td>
-        <td><%= link_to 'Destroy', cave, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <h2><%= cave.cavename %> </h2>
+    <input type="checkbox" id="<%= cave.cavename.downcase %>-toggle" class='btn btn-primary'> Hide</input>
+    <div class="row">
+    <hr>
+    
+    <section id="<%= cave.cavename.downcase %>-creatures">
+      <% cave.creature.each do |e| %>
+        <div class="col-xs-3 col-sm-2 col-md-1">
+          <%= image_tag(e.imagelocation)%></p>
+          <p class="ps"><%= e.creaturename %></p>
+          <p><%= e.vita %></p>
+          <p><%= e.ac %></p>
+        </div>
       <% end %>
+      
 
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <ul>
+        <% if Rails.env.development? || user_signed_in? && current_user.id == 5 %>
+          <li><%= link_to 'Show', cave %></li>
+          <li><%= link_to 'Edit', edit_cave_path(cave) %></li>
+          <li><%= link_to 'Add Creature', new_creature_path %></li>
+          <li><%= link_to 'Destroy', cave, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+        <% end %>
+      </ul>
+    </section>
 
-<br>
-<% if user_signed_in? && current_user.email == "sean_snyder@comcast.net" %>
-<%= link_to 'New Cave', new_cave_path %>
+  </div>
+
+    <br>
 <% end %>

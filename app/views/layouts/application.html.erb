@@ -3,8 +3,8 @@
 
 <head>
   <title>Nexus Hunting Calculator</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=> true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track'=> true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=> false %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track'=> false %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -29,13 +29,19 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-            <li>
-              <%= link_to "Sign out", destroy_user_session_path, :method=> :delete %></li>
-            <% else %>
-              <li>
-                <%= link_to "Login", user_session_path %>
-              </li>
-              <% end %>
+            
+            <% if current_user.email == "sean_snyder@comcast.net" %>
+              <li><%= link_to 'New Cave', new_cave_path %></li>
+              <li><%= link_to 'New Creature', new_creature_path %></li>
+            <% end %>
+
+            <li><%= link_to "Sign out", destroy_user_session_path, :method=> :delete %></li>
+          
+          <% else %>
+            
+            <li><%= link_to "Login", user_session_path %></li>
+          
+          <% end %>
         </ul>
       </div>
     </nav>
@@ -49,7 +55,7 @@
     </div>
   </div>
 
-  <section id="footer-section" class="navbar-fixed-bottom">
+  <section id="footer-section" class="navbar navbar-fixed">
     <div class="footer-bottom">
       <div class="container">
         <div class="row">

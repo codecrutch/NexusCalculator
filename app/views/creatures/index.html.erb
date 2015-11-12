@@ -6,10 +6,11 @@
   <thead>
     <tr>
       <th>Creaturename</th>
+      <th>Image Location</th>
       <th>Vita</th>
       <th>Ac</th>
       <th>Cave</th>
-      <th colspan="3"></th>
+      <th colspan="3">Admin</th>
     </tr>
   </thead>
 
@@ -17,6 +18,7 @@
     <% @creatures.each do |creature| %>
       <tr>
         <td><%= creature.creaturename %></td>
+        <td><%= creature.imagelocation %></td>
         <td><%= creature.vita %></td>
         <td><%= creature.ac %></td>
         <td><%= creature.cave_id %></td>

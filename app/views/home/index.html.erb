@@ -7,35 +7,30 @@
 <section id="cave-layout">
   <div class="panel panel-success">
     <div class="panel-header">
-          <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Caves
-              <span class="caret"></span></button>
-            <ul id="caves" class="dropdown-menu">
-              <li><a href="#">Assassin</a></li>
-              <li><a href="#">Magus</a></li>
-              <li><a href="#">Hillman</a></li>
-              <li><a href="#">Hunter</a></li>
-              <li><a href="#">Anchorite</a></li>
-              <li><a href="#">Wind</a>
-              </li>
-              <li><a href="#">Dread</a></li>
-              
-              <li><a href="#">Greyhand</a></li>
-              
-              <li><a href="#">Bandit</a></li>
-              
-              <li><a href="#">Earth</a></li>
-              
-              <li><a href="#">Water</a></li>
-            </ul>
-          </div>
-        </div>
+      <div class="dropdown">
+        <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Caves
+          <span class="caret"></span></button>
+        <ul id="caves" class="dropdown-menu">
+          <li><a href="#">Assassin</a></li>
+          <li><a href="#">Magus</a></li>
+          <li><a href="#">Hillman</a></li>
+          <li><a href="#">Hunter</a></li>
+          <li><a href="#">Anchorite</a></li>
+          <li><a href="#">Wind</a></li>
+          <li><a href="#">Dread</a></li>
+          <li><a href="#">Greyhand</a></li>
+          <li><a href="#">Bandit</a></li>
+          <li><a href="#">Earth</a></li>
+          <li><a href="#">Water</a></li>
+        </ul>
+      </div>
+    </div>
         <div id="creature-content" class="panel-content">
        <section class="creatures"> 
        <div class="row">  
         <div class="col-xs-2">
-          <h2 id="cave">Anchorite</h2>
-          <h4 id="creature">Drone</h4>
+          <h2 id="cave"><%= @caves.first.cavename %></h2>
+          <h4 id="creature"><%= @caves.first.creature.first.creaturename %></h4>
         </div>
         <!-- Add in the creatures dynamically -->
         <div class="col-xs-10">
@@ -117,7 +112,7 @@
         </div>
       </div>
         <div class="row">
-          <div class="col-xs-1 dropup">
+          <div class="col-xs-1 dropdown">
             <button id="spellTitle" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Spells
               <span class="caret"></span></button>
             <ul id="spells" class="dropdown-menu">

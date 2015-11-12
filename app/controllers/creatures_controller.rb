@@ -69,6 +69,6 @@ class CreaturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def creature_params
-      params.require(:creature).permit(:creaturename, :vita, :ac, :cave_id)
+      params.require(:creature).permit(:creaturename, :imagelocation, :vita, :ac, :cave_id)
     end
 end

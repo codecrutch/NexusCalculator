@@ -46,20 +46,6 @@ ul {
 	margin: 0px 10px 0px 0px;
 }
 
-img {
-  margin: 0px 0px 0px 0px;
-}
-
-.red {
-  border: dashed;
-  border-color: red;
-}
-.blue {
-  border: dashed;
-  border-width: 5px;
-  border-color: blue;
-}
-
 .form-group span {
 	width: 80px !important;
 }
@@ -101,6 +87,25 @@ button {
   font-family: "Oswald";
 }
 
-p, h2, h3, h4 {
-  font-family: "Oswald", fantasy, Georgia;
+
+td {
+	background-color: tan;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: Helvetica;
+	color: red;
+}
+
+td:hover {
+	color: yellow;
+}
+
+tr {
+	background-color: brown !important;
+	color: white;
+}
+
+.ps {
+	font-family: "Oswald", Georgia;
+	color: red !important;
 }

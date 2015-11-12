@@ -13,12 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
   	$("#notice").fadeOut(3000);
-  	$("#footer-section").fadeOut(10000);
 
   /*	$("#member-sign-in").slideDown(5000);
   	//$("#member-sign-in").slideDown(5000);

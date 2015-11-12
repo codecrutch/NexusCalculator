@@ -69,6 +69,6 @@ class CavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cave_params
-      params.require(:cave).permit(:cavename, :creatures, :requirements, :coordinates, :boss, :drops)
+      params.require(:cave).permit(:cavename, :requirements, :coordinates, :boss, :drops)
     end
 end
