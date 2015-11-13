@@ -63,7 +63,10 @@ html {
 
 body {
 	margin: 0;
-	height: 100%;
+	 background: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRGz4SJJfeQ8MG3HDfgOCCkgcGGTeAjWCzFXzUDm6fGWyZ7K1mIYrPWByxg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
 }
 
 /* HTML5 display definitions
