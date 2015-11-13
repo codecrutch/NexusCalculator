@@ -19,6 +19,7 @@
 
 $primary: #00006F;
 
+
 nav {
 	font-family: Georgia;
 	width: 100%;
@@ -37,6 +38,10 @@ nav {
     line-height: 38px;
     padding: 15px;
     border-radius: 0;
+}
+
+#footer-padding {
+	height:80px;
 }
 
 #content {
@@ -61,12 +66,31 @@ html {
  * Remove default margin.
  */
 
+img.bg {
+
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
 body {
 	margin: 0;
-	 background: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRGz4SJJfeQ8MG3HDfgOCCkgcGGTeAjWCzFXzUDm6fGWyZ7K1mIYrPWByxg") no-repeat center center fixed; 
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
 }
 
 /* HTML5 display definitions
