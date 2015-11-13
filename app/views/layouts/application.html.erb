@@ -32,7 +32,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             
-            <% if current_user.email == "sean_snyder@comcast.net" %>
+            <% if current_user.email == "sean_snyder@comcast.net" || current_user.id == 5 %>
               <li><%= link_to 'New Cave', new_cave_path %></li>
               <li><%= link_to 'New Creature', new_creature_path %></li>
             <% end %>
