@@ -3,222 +3,221 @@
   <h1 id="member">Thank you for signing in.</br>Feel free to look around.</h1>
   <p>Let us know if you want us to add anything to the application</p>
 </div>
+<div class="container">
+  <div class="row">
+    <section id="cave-layout">
+        <div id="caves" class="row">
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Assassin", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 1} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Magus", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 2} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Hillman", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 3} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Hunter", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 4} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Anchorite", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 5} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Wind", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 6} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Dread", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 7} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Greyhand", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 8} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Bandit", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 9} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Shadow", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 10} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Earth", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 11} } 
+            %>
+          </div>
+          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+            <%= button_to "Water", 
+                { :controller => :caves, :action=> :getcave }, 
+                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 12} } 
+            %>
+          </div>
+        </div>
 
-<div id="content-background">
-  <section id="cave-layout">
-    <div class="container">
-      <div id="caves" class="row">
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Assassin", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 1} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Magus", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 2} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Hillman", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 3} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Hunter", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 4} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Anchorite", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 5} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Wind", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 6} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Dread", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 7} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Greyhand", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 8} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Bandit", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 9} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Shadow", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 10} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Earth", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 11} } 
-          %>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-          <%= button_to "Water", 
-              { :controller => :caves, :action=> :getcave }, 
-              { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 12} } 
-          %>
-        </div>
-      </div>
-
-      <div id="creature-content" class="panel panel-success panel-content">
-        <section class="creatures"> 
-          <div class="row">  
-            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-              <h2 id="cave"></h2>
+        <div class="row">
+            <div id="creature-content" class="panel panel-success panel-content">
+              <section class="creatures"> 
+                <div class="row">  
+                  <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+                    <h2 id="cave"></h2>
+                  </div>                  
+                  <!-- Add in the creatures dynamically -->
+                  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <div id="creatures" class="row">
+                      <h1><strong>Please select a cave.</strong></h1>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-            
-            <!-- Add in the creatures dynamically -->
-            <div class="col-xs-10 col-sm-12 col-md-10 col-lg-10">
-              <div id="creatures" class="row">
-                <h1><strong>Please select a cave.</strong></h1>
+        </div>
+  
+    </section>
+
+    <section id="social-section">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-1 dropup">
+                <button id="spellTitle" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Spells
+                  <span class="caret"></span></button>
+                <ul id="spells" class="dropdown-menu">
+                  <li class="mage-spells dropdown-header">Mage</li>
+                    <li class="mage-spells"><a href="#">Hellfire</a></li>
+                    <li class="mage-spells"><a href="#">Sam Hellfire</a></li>
+                    <li class="mage-spells"><a href="#">Inferno</a></li>
+                    <li class="mage-spells"><a href="#">Sa Hellfire</a></li>
+                    <li class="warrior-spells dropdown-header">Warrior</li>
+                    <li class="warrior-spells"><a href="#">Slash</a></li>
+                    <li class="warrior-spells"><a href="#">Beserk</a></li>
+                    <li class="warrior-spells"><a href="#">Whirlwind</a></li>
+                    <li class="warrior-spells"><a href="#">Assault</a></li>
+                    <li class="warrior-spells"><a href="#">Karak</a></li>
+                    <li class="warrior-spells"><a href="#">Warrior Sa</a></li>
+                    <li class="warrior-spells subpath"><a href="#">Rend</a></li>
+                    <li class="warrior-spells subpath"><a href="#">Townie</a></li>
+                  <li class="rogue-spells dropdown-header">Rogue</li>
+                    <li class="rogue-spells"><a href="#">Desperate Attack</a></li>
+                    <li class="rogue-spells"><a href="#">Lethal Strike</a></li>
+                    <li class="rogue-spells"><a href="#">Sam Kae</a></li>
+                    <li class="rogue-spells subpath"><a href="#">Rogue Sa</a></li>
+                    <li class="rogue-spells subpath"><a href="#">Assassinate</a></li>
+                  <li class="poet-spells dropdown-header">Poet</li>
+                    <li class="poet-spells"><a href="#">Retribution</a></li>
+                    <li class="poet-spells subpath"><a href="#">Son-Kal</a></li>
+                </ul>
               </div>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
-  </section>
-
-  <section id="social-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="row">
-            <div class="col-xs-1 dropup">
-              <button id="spellTitle" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Spells
-                <span class="caret"></span></button>
-              <ul id="spells" class="dropdown-menu">
-                <li class="mage-spells dropdown-header">Mage</li>
-                  <li class="mage-spells"><a href="#">Hellfire</a></li>
-                  <li class="mage-spells"><a href="#">Sam Hellfire</a></li>
-                  <li class="mage-spells"><a href="#">Inferno</a></li>
-                  <li class="mage-spells"><a href="#">Sa Hellfire</a></li>
-                  <li class="warrior-spells dropdown-header">Warrior</li>
-                  <li class="warrior-spells"><a href="#">Slash</a></li>
-                  <li class="warrior-spells"><a href="#">Beserk</a></li>
-                  <li class="warrior-spells"><a href="#">Whirlwind</a></li>
-                  <li class="warrior-spells"><a href="#">Assault</a></li>
-                  <li class="warrior-spells"><a href="#">Karak</a></li>
-                  <li class="warrior-spells"><a href="#">Warrior Sa</a></li>
-                  <li class="warrior-spells subpath"><a href="#">Rend</a></li>
-                  <li class="warrior-spells subpath"><a href="#">Townie</a></li>
-                <li class="rogue-spells dropdown-header">Rogue</li>
-                  <li class="rogue-spells"><a href="#">Desperate Attack</a></li>
-                  <li class="rogue-spells"><a href="#">Lethal Strike</a></li>
-                  <li class="rogue-spells"><a href="#">Sam Kae</a></li>
-                  <li class="rogue-spells subpath"><a href="#">Rogue Sa</a></li>
-                  <li class="rogue-spells subpath"><a href="#">Assassinate</a></li>
-                <li class="poet-spells dropdown-header">Poet</li>
-                  <li class="poet-spells"><a href="#">Retribution</a></li>
-                  <li class="poet-spells subpath"><a href="#">Son-Kal</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
 
-  <section id="calculator">
-    <div class="container">
-      <div class="row">
-        <div class="panel col-xs-12">
-          <div class="row">
-            <div class="col-xs-12 text-center">
-              <h2 class="title">Nexus Hunting Calculator</h2>
-              <h4>Please enter your character's stats.</h4>
-            </div>
-          </div>
-
-          <div class="row hidden-xs">
-          <div id="mgw" class="form-group">
-            <div class="col-xs-12 col-md-2 col-large-1">
-              <div class="input-group">
-              <span class="input-group-addon">AC</span>
-              <input class="form-control" id="charAC" placeholder="AC" value="-95" size="3">
-            </div>
-            </div>
-            <div class="col-xs-12 col-md-2 col-large-1">
-              <div class="input-group">
-                <span class="input-group-addon">Might</span>
-               <input class="form-control" id="charMight" placeholder="Might" value="135" size="3">
-             </div>
-           </div>
-               <div class="col-xs-12 col-md-2 col-large-1">
-                <div class="input-group">
-                <span class="input-group-addon">Grace</span>
-               <input class="form-control" id="charGrace" placeholder="Grace" value="135" size="3">
-             </div>
-               </div>
-               <div class="col-xs-12 col-md-2 col-large-1">
-                <div class="input-group">
-                <span class="input-group-addon">Will</span>
-               <input class="form-control" id="charWill" placeholder="Will" value="135" size="3">
-             </div>
-               </div>
+    <section id="calculator">
+      <div class="">
+        <div class="row">
+          <div class="panel col-xs-12">
+            <div class="row">
+              <div class="col-xs-12 text-center">
+                <h2 class="title">Nexus Hunting Calculator</h2>
+                <h4>Please enter your character's stats.</h4>
               </div>
-          </div>
+            </div>
 
-          </br>
-
-          <div class="row">
-            <div class="form-group">
-              <div class="col-md-8 col-large-12">
+            <div class="row hidden-xs">
+            <div id="mgw" class="form-group">
+              <div class="col-xs-12 col-md-2 col-large-1">
                 <div class="input-group">
-                  <span class="input-group-addon vita">Vita</span>
-                  <input type="text" class="form-control bfh-number" id="charVita" placeholder="Character Vita" data-min="1000" data-max="99999999" size="19">
+                <span class="input-group-addon">AC</span>
+                <input class="form-control" id="charAC" placeholder="AC" value="-95" size="3">
+              </div>
+              </div>
+              <div class="col-xs-12 col-md-2 col-large-1">
+                <div class="input-group">
+                  <span class="input-group-addon">Might</span>
+                 <input class="form-control" id="charMight" placeholder="Might" value="135" size="3">
+               </div>
+             </div>
+                 <div class="col-xs-12 col-md-2 col-large-1">
+                  <div class="input-group">
+                  <span class="input-group-addon">Grace</span>
+                 <input class="form-control" id="charGrace" placeholder="Grace" value="135" size="3">
+               </div>
+                 </div>
+                 <div class="col-xs-12 col-md-2 col-large-1">
+                  <div class="input-group">
+                  <span class="input-group-addon">Will</span>
+                 <input class="form-control" id="charWill" placeholder="Will" value="135" size="3">
+               </div>
+                 </div>
+                </div>
+            </div>
+
+            </br>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-md-8 col-large-12">
+                  <div class="input-group">
+                    <span class="input-group-addon vita">Vita</span>
+                    <input type="text" class="form-control bfh-number" id="charVita" placeholder="Character Vita" data-min="1000" data-max="99999999" size="19">
+                  </div>
+                </div>
+
+                <div class="col-md-8 col-large-12">
+                 <div class="input-group">
+                    <span class="input-group-addon mana">Mana</span>
+                    <input type="text" class="form-control bfh-number" id="charMana" placeholder="Character Mana" data-min="1000" data-max="99999999" size="19">
+                  </div>
                 </div>
               </div>
+            </div>
 
-              <div class="col-md-8 col-large-12">
-               <div class="input-group">
-                  <span class="input-group-addon mana">Mana</span>
-                  <input type="text" class="form-control bfh-number" id="charMana" placeholder="Character Mana" data-min="1000" data-max="99999999" size="19">
-                </div>
+          
+            <div class="row">
+              <div class="col-xs-12">
+                 <p></p>
               </div>
             </div>
-          </div>
-
-        
-          <div class="row">
-            <div class="col-xs-12">
-               <p></p>
+                
+            <div class="row">
+              <div class="col-md-7 col-large-12">
+               <h3>Damage: <span id="damageOutput"></span></h3>
+              </div>
             </div>
-          </div>
-              
-          <div class="row">
-            <div class="col-md-7 col-large-12">
-             <h3>Damage: <span id="damageOutput"></span></h3>
-            </div>
-          </div>
 
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 
 <!-- ELSE STATEMENT -->

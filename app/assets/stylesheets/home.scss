@@ -14,11 +14,7 @@ body {
 }
 
 #creature-content {
-	padding: 30px;	
-}
-
-#cave-layout {
-	height: 350px;
+	padding: 30px;
 }
 
 #creatureSelected {
@@ -71,29 +67,10 @@ body {
 
 .title {
   font-family: impact;
-  color: white;
 }
 
 button {
   font-family: "Oswald";
-}
-
-
-td {
-	background-color: tan;
-	font-size: 20px;
-	font-weight: bold;
-	font-family: Helvetica;
-	color: red;
-}
-
-td:hover {
-	color: yellow;
-}
-
-tr {
-	background-color: brown !important;
-	color: white;
 }
 
 .ps {
@@ -115,24 +92,7 @@ tr {
 
 #social-section {
 	button {
-		margin: 12px 0px 0px 0px;
-	}
-}
-
-#creatures {
-	height: 150px;
-}
-
-#social-section {
-	height: 60px;
-}
-
-#calculator {
-	margin: 0px 0px -1px 0px;
-	padding: 10px 30px 0px 30px;
-
-	.container {
-		padding: 20px 0px -20px 0px;
+		margin: 10px 0px 10px 0px;
 	}
 }
 

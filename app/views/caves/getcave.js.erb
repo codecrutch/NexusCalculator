@@ -4,7 +4,7 @@ $("#cave").html("<%= escape_javascript(@cave.cavename) %><p>");
 <% @cave.creature.each do |c| %>
 $("#creatures").append("<div class='col-xs-4 col-md-1 creature-pad text-center'>" + '<%= escape_javascript(image_tag(c.imagelocation)) %>'
  + "<span class='creaturename'><%= escape_javascript(c.creaturename) %></span>" 
- + "</br><span class='creaturevita'><%= escape_javascript(c.vita.to_s) %></span>" 
+ + "</br><span style='display:none;' class='creaturevita'><%= escape_javascript(c.vita.to_s) %></span>" 
  + "</br><span style='display:none;' class='creatureac'><%= escape_javascript(c.ac.to_s) %></span>"
  + "</div>");
 <% end %>
