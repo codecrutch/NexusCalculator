@@ -10,73 +10,73 @@
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Assassin", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 1} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 1} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Magus", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 2} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 2} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Hillman", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 3} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 3} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Hunter", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 4} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 4} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Anchorite", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 5} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 5} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Wind", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 6} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 6} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Dread", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 7} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 7} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Greyhand", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 8} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 8} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Bandit", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 9} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 9} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Shadow", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 10} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 10} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Earth", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 11} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 11} } 
             %>
           </div>
           <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
             <%= button_to "Water", 
                 { :controller => :caves, :action=> :getcave }, 
-                { :remote => true, :class => "cave-button btn btn-success", :method => 'get', params: {cave_id: 12} } 
+                { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 12} } 
             %>
           </div>
         </div>
@@ -223,20 +223,25 @@
 <!-- ELSE STATEMENT -->
 
 <% else %>
-
-
+<section id="landing-page-info">
 <div class="container">
 <div class="row">
-  <div class="col-large-12">
-  <h1>Please sign in to get full functionality!</h1>
+
+ <div class="col-lg-6">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h1>Please sign in to get full functionality!</h1>
+    </div>
+    <div class="panel-body">
   <p>By signing up you get access to:</p>
-  <ul>
-    <li>Save stats (see where you left off)</li>
-    <li>Track experience hunted between every stat save</li>
-    <li>More additional features to come soon...</li>
-  </ul>
+    <p>Save stats (see where you left off)</p>
+    <p>Track experience hunted between every stat save</p>
+    <p>More additional features to come soon...</p>
+    </div>
+  </div>
 </div>
 </div>
 </div>
+</section>
 <% end %>
 

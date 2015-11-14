@@ -17,7 +17,11 @@
 
 $(document).ready(function() {
   	$("#notice").fadeOut(3000);
-  	$.backstretch("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRGz4SJJfeQ8MG3HDfgOCCkgcGGTeAjWCzFXzUDm6fGWyZ7K1mIYrPWByxg");
+  	$.backstretch("http://www.nexusatlas.com/photo/newspics/Pueullabattles2.PNG");
+
+  	 $(window).load(function(){
+        $('#myModal').modal('show');
+    });
 
 
   /*	$("#member-sign-in").slideDown(5000);
