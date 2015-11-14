@@ -1,5 +1,6 @@
-//Empty creatures div
+//Empty creatures and boss divs
 $("#creatures").empty();
+$("#boss").empty();
 $("#cave").html("<%= escape_javascript(@cave.cavename) %><p>");
 <% @cave.creature.each do |c| %>
 <% if c.creaturename.downcase == @cave.boss.downcase %>
@@ -10,8 +11,8 @@ $("#boss").append("<div class='row'><div class='col-xs-4 col-md-1 creature-pad t
  + "</br><span style='display:none;' class='creatureac'><%= escape_javascript(c.ac.to_s) %></span>"
  + "</div></div>");
 <% else %>
-$("#creatures").append("<div class='col-xs-4 col-md-1 creature-pad text-center'>" + '<%= escape_javascript(image_tag(c.imagelocation)) %>'
- + "<span class='creaturename'><%= escape_javascript(c.creaturename) %></span>" 
+$("#creatures").append("<div class='col-xs-6 col-sm-6 col-md-1 creature-pad'>" + '<%= escape_javascript(image_tag(c.imagelocation)) %>'
+ + "<span class='creaturename center-block'><%= escape_javascript(c.creaturename) %></span>" 
  + "</br><span style='display:none;' class='creaturevita'><%= escape_javascript(c.vita.to_s) %></span>" 
  + "</br><span style='display:none;' class='creatureac'><%= escape_javascript(c.ac.to_s) %></span>"
  + "</div>");
