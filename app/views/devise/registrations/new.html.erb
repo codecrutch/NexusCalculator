@@ -1,18 +1,41 @@
-<h2>Sign up</h2>
+ <!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Sign up</h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="sign-up-box" class="col-xs-12">         	
+				
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+			  <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+			  <div><%= f.label :email %><br />
+			  <%= f.email_field :email, autofocus: true %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+			  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+			    <%= f.password_field :password, autocomplete: "off" %></div>
 
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+			  <div><%= f.label :password_confirmation %><br />
+			    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+			  <div></br><%= f.submit "Sign up", class: "btn btn-primary" %></div>
+			</br>
+			<%= render "devise/shared/links" %>
+            
+			<% end %>
 
-  <div><%= f.submit "Sign up", class: "btn btn-primary" %></div>
-<% end %>
+			</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
 
-<%= render "devise/shared/links" %>

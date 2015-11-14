@@ -1,5 +1,7 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome to Nexus Hunting Calculator <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>You can <strong><em>confirm your account<strong><em> through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>We look forward to your patronage</p>
