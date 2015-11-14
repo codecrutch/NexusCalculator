@@ -91,7 +91,20 @@
                   <!-- Add in the creatures dynamically -->
                   <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                     <div id="creatures" class="row">
-                      <h1><strong>Please select a cave.</strong></h1>
+                      <h1>
+
+                        <div id="notice">
+                        <!-- DISPLAY DEVISE MESSAGES -->
+                          <% flash.each do |key, value| %>
+                          <span>
+                            <h1 style="color:green;"><%= value %></h1>
+                          </span>
+                    
+                          <% end %>
+                        </div>
+
+                        <strong>Please select a cave.</strong>
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -232,16 +245,30 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title text-center">Please</br><%= link_to "Sign up", new_user_registration_path, style: "text-decoration: none;" %> or <%= link_to 'Login', user_session_path, style: "text-decoration: none;" %></h2>
+          <h2 class="modal-title text-center">
+            Please</br><%= link_to "Sign up", new_user_registration_path, style: "text-decoration: none;" %> or <%= link_to 'Login', user_session_path, style: "text-decoration: none;" %></h2>
         </div>
         <div class="modal-body">
           <div class="row">
             <div id="landing-page-box" class="col-xs-12">     
             <h4>
-            <p>Features:</p>
-            <p>Save stats (see where you left off)</p>
-            <p>Track experience hunted between every stat save</p>
-            <p>More additional features to come soon...</p>
+              <p>Features:</p>
+              <p>Save stats (see where you left off)</p>
+              <p>Track experience hunted between every stat save</p>
+              <p>More additional features to come soon...</p>
+            </br>
+              <div id="devise-message">
+              <!-- DISPLAY DEVISE MESSAGES -->
+                <% flash.each do |key, value| %>
+                <div class="alert alert-<%= key %>">
+                <a href="#" data-dismiss="alert" class="close">×</a>
+                <span>
+                  <h3 style="color:red;"><%= value %></h3>
+                </span>
+                </div>
+          
+                <% end %>
+              </div>
 
           </h4>
           </div>

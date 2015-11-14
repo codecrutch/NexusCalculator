@@ -32,10 +32,11 @@
           <% if user_signed_in? %>
             
             <% if current_user.email == "sean_snyder@comcast.net" || current_user.id == 5 %>
+  
               <li><%= link_to 'New Cave', new_cave_path %></li>
               <li><%= link_to 'New Creature', new_creature_path %></li>
             <% end %>
-
+            <li><%= link_to "", edit_user_registration_path, class: "glyphicon glyphicon-user" %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method=> :delete %></li>
           
           <% else %>

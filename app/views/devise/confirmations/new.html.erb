@@ -10,7 +10,8 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div id="resend-confirmation-box" class="col-xs-12">         	
+            <div id="resend-confirmation-box" class="col-xs-12">
+            <div id="#notice"></div>         	
 				<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 				  <%= devise_error_messages! %>
 

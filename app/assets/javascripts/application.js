@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-  	$("#notice").fadeOut(3000);
+  	$("#notice").fadeOut(1750);
   	$.backstretch("http://www.nexusatlas.com/photo/newspics/Pueullabattles2.PNG");
 
   	 $(window).load(function(){
