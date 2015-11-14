@@ -7,82 +7,85 @@
   <div class="row">
     <section id="cave-layout">
         <div id="caves" class="row">
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
+          <div class="btn-group">
+            <div class="btn-group">
             <%= button_to "Assassin", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 1} } 
             %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Magus", 
+            </div>
+            <div class="btn-group">
+              <%= button_to "Magus", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 2} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Hillman", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Hillman", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 3} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Hunter", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Hunter", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 4} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Anchorite", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Anchorite", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 5} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Wind", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Wind", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 6} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Dread", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Dread", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 7} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Greyhand", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Greyhand", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 8} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Bandit", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Bandit", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 9} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Shadow", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Shadow", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 10} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Earth", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Earth", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 11} } 
-            %>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-2 col-lg-1">
-            <%= button_to "Water", 
+              %>
+            </div>
+            <div class="btn-group">
+              <%= button_to "Water", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 12} } 
-            %>
+              %>
+            </div>
+
           </div>
         </div>
 
         <div class="row">
-            <div id="creature-content" class="panel panel-success panel-content">
+            <div id="creature-content" class="panel">
               <section class="creatures"> 
                 <div class="row">  
                   <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
