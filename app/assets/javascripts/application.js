@@ -17,6 +17,8 @@
 
 $(document).ready(function() {
   	$("#notice").fadeOut(3000);
+  	$.backstretch("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRGz4SJJfeQ8MG3HDfgOCCkgcGGTeAjWCzFXzUDm6fGWyZ7K1mIYrPWByxg");
+
 
   /*	$("#member-sign-in").slideDown(5000);
   	//$("#member-sign-in").slideDown(5000);
