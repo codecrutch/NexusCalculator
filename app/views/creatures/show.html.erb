@@ -1,30 +1,69 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Creature name:</strong>
-  <%= @creature.creaturename %>
-</p>
+ <!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title"><%= @creature.creaturename %> 
+            <%= link_to '', edit_creature_path(@creature), class: "glyphicon glyphicon-edit", style: "font-size: 40px; text-decoration:none;" %></h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="edit-creature-box" class="col-xs-12">
 
-<p>
-  <strong>Image Location:</strong>
-  <%= @creature.imagelocation %>
-</p>
+              <p id="notice"><%= notice %></p>
+            </br>
+            <p class="text-center">
+              <%= image_tag @creature.imagelocation %>
+            </p>
+            <div class="well">
+              <p>
+                <strong>Image Location:</strong>
+                <%= @creature.imagelocation %>
+              </p>
 
+              <p>
+                <strong>Vita:</strong>
+                <%= @creature.vita %>
+              </p>
 
-<p>
-  <strong>Vita:</strong>
-  <%= @creature.vita %>
-</p>
+              <p>
+                <strong>Ac:</strong>
+                <%= @creature.ac %>
+              </p>
 
-<p>
-  <strong>Ac:</strong>
-  <%= @creature.ac %>
-</p>
+              <p>
+                <strong>Cave:</strong>
+                <%= @creature.cave_id %>
+              </p>
+            </div>
 
-<p>
-  <strong>Cave:</strong>
-  <%= @creature.cave_id %>
-</p>
+            <div class="text-center">
+            <% if @creature.id > 1 %>
+              <%= link_to '', creature_path(@creature.id - 1), class: "glyphicon glyphicon-chevron-left", style: "font-size: 40px; text-decoration:none;" %>
+            <% end %>
 
-<%= link_to 'Edit', edit_creature_path(@creature) %> |
-<%= link_to 'Back', creatures_path %>
+            <%= link_to '', creatures_path, class: "glyphicon glyphicon-option-horizontal", style: "font-size: 40px;text-decoration:none;" %> 
+
+            <% if @creature.id <= (@creatures.length - 1) %>
+              <%= link_to '', creature_path(@creature.id + 1), class: "glyphicon glyphicon-chevron-right", style: "font-size: 40px;text-decoration:none;" %>
+             
+            <% end %>
+          </div>
+
+            <br> 
+            <%= link_to 'Back', 'javascript:history.go(-1);' %>
+      </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal end -->
+  
+

@@ -95,3 +95,16 @@ body {
 		margin: 10px 0px 10px 0px;
 	}
 }
+#creatures-table {
+
+	th {
+		color: black;
+    	padding: 10px;
+		font-size:20px;
+	}
+	td {
+	    padding: 0px 10px 0px 0px;
+		color: $vita;
+	}
+
+}

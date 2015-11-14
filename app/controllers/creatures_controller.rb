@@ -10,6 +10,7 @@ class CreaturesController < ApplicationController
   # GET /creatures/1
   # GET /creatures/1.json
   def show
+    @creatures = Creature.all
   end
 
   # GET /creatures/new

@@ -1,6 +1,35 @@
-<h1>Editing Creature</h1>
+ <!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Editing Creature</h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="edit-creature-box" class="col-xs-12">
 
-<%= render 'form' %>
+              <p id="notice"><%= notice %></p>
+            </br>
 
-<%= link_to 'Show', @creature %> |
-<%= link_to 'Back', creatures_path %>
+            <%= render 'form' %>
+
+			<%= link_to 'Show', @creature %> |
+			<%= link_to 'Back', 'javascript:history.go(-1);' %>
+
+            <br>          
+
+      </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal end -->
+  
+

@@ -1,7 +1,7 @@
 //Empty creatures and boss divs
 $("#creatures").empty();
 $("#boss").empty();
-$("#cave").html("<%= escape_javascript(@cave.cavename) %><p>");
+$("#cave").html("<%= escape_javascript(@cave.cavename) %><p><h5><%= escape_javascript(@cave.requirements) %></h5>");
 <% @cave.creature.each do |c| %>
 <% if c.creaturename.downcase == @cave.boss.downcase %>
 //alert("creature creaturename: " + "<%= c.creaturename %>" + " Cave boss name: " + "<%= @cave.boss %>");

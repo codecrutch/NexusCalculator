@@ -21,13 +21,13 @@
               %>
             </div>
             <div class="btn-group">
-              <%= button_to "Hillman", 
+              <%= button_to "Hunter", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 3} } 
               %>
             </div>
             <div class="btn-group">
-              <%= button_to "Hunter", 
+              <%= button_to "Hillmen", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 4} } 
               %>
@@ -45,25 +45,25 @@
               %>
             </div>
             <div class="btn-group">
-              <%= button_to "Dread", 
+              <%= button_to "Shadow", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 7} } 
               %>
             </div>
             <div class="btn-group">
-              <%= button_to "Greyhand", 
+              <%= button_to "Bandit", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 8} } 
               %>
             </div>
             <div class="btn-group">
-              <%= button_to "Bandit", 
+              <%= button_to "Dread", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 9} } 
               %>
             </div>
             <div class="btn-group">
-              <%= button_to "Shadow", 
+              <%= button_to "Greyhand", 
                 { :controller => :caves, :action=> :getcave }, 
                 { :remote => true, :class => "cave-button btn btn-danger", :method => 'get', params: {cave_id: 10} } 
               %>
@@ -283,6 +283,8 @@
       
     </div>
   </div>
+  <!-- Modal End -->
+  
 </section>
 <% end %>
 
