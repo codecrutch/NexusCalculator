@@ -1,42 +1,66 @@
-<p id="notice"><%= notice %></p>
+<!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Cave</h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="show-cave-box" class="col-xs-12">
+       <p id="notice"><%= notice %></p>
+             </br>
 
-<p>
-  <strong>Cavename:</strong>
-  <%= @cave.cavename %>
-</p>
+            <p>
+              <strong>Cave:</strong>
+              <%= @cave.cavename %>
+            </p>
 
-<p>
-  <div class="panel panel-success">
-    <div class="panel-header">
-      <strong>Creatures:</strong>
+            <p>
+            <div class="panel panel-success">
+              <div class="panel-header">
+                <strong>Creatures:</strong>
+              </div>
+              <div class="panel-body">
+               <% @cave.creature.each do |e| %>
+                 <p><%= link_to e.creaturename, creature_path(e) %></p>
+               <% end %>
+              </div>
+            </div>
+            </p>
+
+            <p>
+              <strong>Requirements:</strong>
+              <%= @cave.requirements %>
+            </p>
+
+            <p>
+              <strong>Coordinates:</strong>
+              <%= @cave.coordinates %>
+            </p>
+
+            <p>
+              <strong>Boss:</strong>
+              <%= @cave.boss %>
+            </p>
+
+            <p>
+              <strong>Drops:</strong>
+              <%= @cave.drops %>
+            </p>
+
+            <%= link_to 'Edit', edit_cave_path(@cave) %> |
+            <%= link_to 'Back', 'javascript:history.go(-1);' %>
+           <br>
+        </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
-    <div class="panel-body">
-  <% @cave.creature.each do |e| %>
-  <p><%= e.creaturename %></p>
-  <% end %>
-</div>
-</div>
-</p>
+  </div>
 
-<p>
-  <strong>Requirements:</strong>
-  <%= @cave.requirements %>
-</p>
-
-<p>
-  <strong>Coordinates:</strong>
-  <%= @cave.coordinates %>
-</p>
-
-<p>
-  <strong>Boss:</strong>
-  <%= @cave.boss %>
-</p>
-
-<p>
-  <strong>Drops:</strong>
-  <%= @cave.drops %>
-</p>
-
-<%= link_to 'Edit', edit_cave_path(@cave) %> |
-<%= link_to 'Back', caves_path %>
+  <!-- Modal end -->

@@ -1,34 +1,56 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Caves</h1>
-    <% @caves.each do |cave| %>
-    <h2><%= cave.cavename %> </h2>
-    <input type="checkbox" id="<%= cave.cavename.downcase %>-toggle" class='btn btn-primary'> Hide</input>
-    <div class="row">
-    <hr>
+ <!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
     
-    <section id="<%= cave.cavename.downcase %>-creatures">
-      <% cave.creature.each do |e| %>
-        <div class="col-xs-3 col-sm-2 col-md-1">
-          <%= image_tag(e.imagelocation)%></p>
-          <p class="ps"><%= e.creaturename %></p>
-          <p><%= e.vita %></p>
-          <p><%= e.ac %></p>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Caves</h2>
         </div>
-      <% end %>
+        <div class="modal-body">
+          <div class="row">
+            <div id="caves-box" class="col-xs-12">
+
+              <p id="notice"><%= notice %></p>
+            </br>
+
+            <% @caves.each do |cave| %>
+              <h2><%= cave.cavename %>
+                  <% if Rails.env.development? || user_signed_in? && current_user.id == 5 %>
+                    <span class="pull-right"><%= link_to 'Show', cave %> | <%= link_to 'Edit', edit_cave_path(cave) %></span>
+                  <% end %>
+              </h2>
+              <input type="checkbox" id="<%= cave.cavename.downcase %>-toggle" class='btn btn-primary'> Hide</input>
+              <div class="row">
+              <hr>
+              
+              <section id="<%= cave.cavename.downcase %>-creatures">
+                <% cave.creature.each do |e| %>
+                  <div class="col-xs-3 col-sm-2 col-md-1">
+                    <%= image_tag(e.imagelocation)%></p>
+                    <p class="ps"><%= e.creaturename %></p>
+                    <p><%= e.vita %></p>
+                    <p><%= e.ac %></p>
+                  </div>
+                <% end %>
+              </section>
+
+            </div>
+
+              <br>
+          <% end %>
+
+            <br>          
+
+      </div>
+          </div>
+        </div>
+      </div>
       
-
-      <ul>
-        <% if Rails.env.development? || user_signed_in? && current_user.id == 5 %>
-          <li><%= link_to 'Show', cave %></li>
-          <li><%= link_to 'Edit', edit_cave_path(cave) %></li>
-          <li><%= link_to 'Add Creature', new_creature_path %></li>
-          <li><%= link_to 'Destroy', cave, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-        <% end %>
-      </ul>
-    </section>
-
+    </div>
   </div>
 
-    <br>
-<% end %>
+  <!-- Modal end -->
+  
+
