@@ -257,7 +257,7 @@ function removeCreatures() {
 
 function creatureDamageOutput(creature_vita) {
 
-  console.log("Creature vita = " + creature_vita + " and player damage = " + player.damageDealt + " Health left = " + (creature_vita - player.damageDealt));
+  //console.log("Creature vita = " + creature_vita + " and player damage = " + player.damageDealt + " Health left = " + (creature_vita - player.damageDealt));
   var health_left = creature_vita - player.damageDealt;
 
   if(health_left > 0) {
@@ -273,9 +273,7 @@ function outputCreatureDamage() {
   if($("#cave").text() == "") { 
   } else {
     $.each($(".creaturevita"), function(index, value) {
-        if(index === 7) {
-          return;
-        }
+        
         $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "/" + $(value).text() + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 
@@ -290,14 +288,10 @@ function outputCreatureDamage() {
         var el = "#creature-percent-" + index;
 
         $(el).attr({"style" : color_percent, "aria-valuenow": color_percent});
-        $(el).text(player.damagePercent + "% Complete (success)");
+        $(el).text(player.damagePercent + "%");
+
 
     })
-    var color_percent = "width:" + player.damagePercent + "%;"
-    $("#boss").append("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($("#boss .creaturevita").text()) + "/" + $("#boss .creaturevita").text() + "</p>");
-
-    $("#boss-percent").attr({"style": color_percent});
-    $("#boss-percent").text(player.damagePercent + "% Complete (success)");
   }
 }
 

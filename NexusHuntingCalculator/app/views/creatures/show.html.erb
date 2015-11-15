@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Creaturename:</strong>
+  <%= @creature.creaturename %>
+</p>
+
+<p>
+  <strong>Vita:</strong>
+  <%= @creature.vita %>
+</p>
+
+<p>
+  <strong>Ac:</strong>
+  <%= @creature.ac %>
+</p>
+
+<p>
+  <strong>Cave:</strong>
+  <%= @creature.cave_id %>
+</p>
+
+<%= link_to 'Edit', edit_creature_path(@creature) %> |
+<%= link_to 'Back', creatures_path %>
