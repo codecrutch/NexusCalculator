@@ -12,6 +12,7 @@ var player = {
   graceMultiplier: 0,
   spell: "",
   damageDealt: 0,
+  damagePercent: 0,
 };
 
 
@@ -256,11 +257,14 @@ function removeCreatures() {
 
 function creatureDamageOutput(creature_vita) {
 
-  console.log("Creature vita = " + creature_vita + " and player damage = " + player.damageDealt + " DAMAGE DONE = " + (creature_vita - player.damageDealt));
+  console.log("Creature vita = " + creature_vita + " and player damage = " + player.damageDealt + " Health left = " + (creature_vita - player.damageDealt));
   var health_left = creature_vita - player.damageDealt;
+
   if(health_left > 0) {
+    player.damagePercent = Math.round((health_left / creature_vita) * 100);
     return health_left;
   } else {
+    player.damagePercent = 0;
     return 0;
   }
 }
@@ -270,6 +274,10 @@ function outputCreatureDamage() {
   } else {
     $.each($(".creaturevita"), function(index, value) {
         $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "/" + $(value).text() + "</p>");
+        var color_percent = "width:" + player.damagePercent + "%;"
+        console.log("index: "+ index +" => " + color_percent);
+        $(".progress-bar:nth-child("+index+")").attr("style", color_percent);
+        $("#boss-percent").attr("style", color_percent);
     })
   }
 }
