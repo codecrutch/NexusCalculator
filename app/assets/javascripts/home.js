@@ -278,21 +278,16 @@ function outputCreatureDamage() {
         }
         $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "/" + $(value).text() + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
-        console.log("index: "+ index +" => " + color_percent);
 
         if(player.damagePercent > 75) {
         }
         if(player.damagePercent < 75 && player.damagePercent > 35) {
-          alert("less than 75 more than 35");
-          $("#creature-percent:nth-child("+index+")").removeClass("progress-bar-success");
-          $("#creature-percent:nth-child("+index+")").addClass("progress-bar-warning");
+          $("#creature-percent:nth-child("+index+")").toggleClass("progress-bar-success progress-bar-warning");
         }
         if(player.damagePercent < 35) {
-          $("#creature-percent:nth-child("+index+")").removeClass("progress-bar-success");
-          $("#creature-percent:nth-child("+index+")").addClass("progress-bar-danger");
+          $("#creature-percent:nth-child("+index+")").toggleClass("progress-bar-success progress-bar-danger")
         }
         var el = "#creature-percent-" + index;
-        console.log(el);
 
         $(el).attr({"style" : color_percent, "aria-valuenow": color_percent});
         $(el).text(player.damagePercent + "% Complete (success)");
@@ -303,7 +298,6 @@ function outputCreatureDamage() {
 
     $("#boss-percent").attr({"style": color_percent});
     $("#boss-percent").text(player.damagePercent + "% Complete (success)");
-    console.log("BOSS: " + player.damagePercent);
   }
 }
 
