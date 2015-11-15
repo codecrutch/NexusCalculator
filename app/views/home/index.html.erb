@@ -1,8 +1,4 @@
 <% if user_signed_in? %>
-<div id="member-sign-in" class="row text-center jumbotron hidden-xs">
-  <h1 id="member">Thank you for signing in.</br>Feel free to look around.</h1>
-  <p>Let us know if you want us to add anything to the application</p>
-</div>
 <div class="container">
   <div class="row">
     <section id="cave-layout">
@@ -119,35 +115,54 @@
   
     </section>
 
-    <section id="social-section">
+    <section id="spells-section">
         <div class="row">
           <div class="col-xs-12">
-            <div class="row">
-              <div class="col-xs-1 dropup">
-                <button id="spellTitle" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Spells
-                  <span class="caret"></span></button>
-                <ul id="spells" class="dropdown-menu">
+            <div class="row btn-group">
+              <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 dropup">
+                <button id="mage-spell-title" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Mage</button>
+                <ul id="mage-spell-dropdown" class="dropdown-menu">
                   <li class="mage-spells dropdown-header">Mage</li>
                     <li class="mage-spells"><a href="#">Hellfire</a></li>
                     <li class="mage-spells"><a href="#">Sam Hellfire</a></li>
                     <li class="mage-spells"><a href="#">Inferno</a></li>
                     <li class="mage-spells"><a href="#">Sa Hellfire</a></li>
+                </ul>
+              </div>
+
+              <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 dropup">
+                <button id="warrior-spell-title" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Warrior</button>
+                <ul id="warrior-spell-dropdown" class="dropdown-menu">
                     <li class="warrior-spells dropdown-header">Warrior</li>
                     <li class="warrior-spells"><a href="#">Slash</a></li>
                     <li class="warrior-spells"><a href="#">Beserk</a></li>
-                    <li class="warrior-spells"><a href="#">Whirlwind</a></li>
+                    <li class="warrior-spells"><a href="#">Feral Beserk</a></li>
+                    <li class="warrior-spells"><a href="#">Whirlwind</a>
+                    <li class="warrior-spells"><a href="#">Whirlwind (Kwi-sin)</a></li></li>
                     <li class="warrior-spells"><a href="#">Assault</a></li>
                     <li class="warrior-spells"><a href="#">Karak</a></li>
                     <li class="warrior-spells"><a href="#">Warrior Sa</a></li>
                     <li class="warrior-spells subpath"><a href="#">Rend</a></li>
                     <li class="warrior-spells subpath"><a href="#">Townie</a></li>
+                </ul>
+              </div>
+
+              <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 dropup">
+                <button id="rogue-spell-title" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Rogue</button>
+                <ul id="rogue-spell-dropdown" class="dropdown-menu">
                   <li class="rogue-spells dropdown-header">Rogue</li>
                     <li class="rogue-spells"><a href="#">Desperate Attack</a></li>
                     <li class="rogue-spells"><a href="#">Lethal Strike</a></li>
                     <li class="rogue-spells"><a href="#">Sam Kae</a></li>
                     <li class="rogue-spells subpath"><a href="#">Rogue Sa</a></li>
                     <li class="rogue-spells subpath"><a href="#">Assassinate</a></li>
-                  <li class="poet-spells dropdown-header">Poet</li>
+                  </ul>
+              </div>
+
+              <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 dropup">
+                <button id="poet-spell-title" class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">Poet</button>
+                <ul id="poet-spell-dropdown" class="dropdown-menu">
+                    <li class="poet-spells dropdown-header">Poet</li>
                     <li class="poet-spells"><a href="#">Retribution</a></li>
                     <li class="poet-spells subpath"><a href="#">Son-Kal</a></li>
                 </ul>
@@ -159,7 +174,6 @@
 
 
     <section id="calculator">
-      <div class="">
         <div class="row">
           <div class="panel col-xs-12">
             <div class="row">
@@ -230,8 +244,6 @@
                <h3>Damage: <span id="damageOutput"></span></h3>
               </div>
             </div>
-
-          </div>
         </div>
       </div>
     </section>

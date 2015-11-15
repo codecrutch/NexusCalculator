@@ -9,10 +9,6 @@ body {
   font-family: impact;
 }
 
-#member-sign-in {
-	display: none;
-}
-
 #creature-content {
 	padding: 30px;
 }
@@ -21,6 +17,13 @@ body {
   position: relative;
   top: 30px;
   left: 20px;
+}
+
+#spells-section {
+	button {
+		padding: 5px 0px 5px 0px;
+		width: 100px;
+	}
 }
 
 #spellCasted {
@@ -50,19 +53,19 @@ body {
 }
 
 .subpath {
-	display: none;
+	//display: none;
 }
 
 .warrior-spells {
-	display: none;
+	//display: none;
 }
 
 .rogue-spells {
-	display: none;
+	//display: none;
 }
 
 .poet-spells {
-	display: none;
+	//display: none;
 }
 
 .title {
@@ -90,7 +93,7 @@ body {
 	margin: 35px 0px 0px 0px;
 }
 
-#social-section {
+#spells-section {
 	button {
 		margin: 10px 0px 10px 0px;
 	}
