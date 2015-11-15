@@ -269,14 +269,21 @@ function outputCreatureDamage() {
   if($("#cave").text() == "") { 
   } else {
     $.each($(".creaturevita"), function(index, value) {
-        $(value).after("<p>Vita Left:" + creatureDamageOutput($(value).text()) + "</p>");
+        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "/" + $(value).text() + "</p>");
     })
   }
+}
+
+function deleteDamageDealt() {
+  $.each($(".damage-dealt"), function(index, value) {
+    $(value).remove();
+  })
 }
 
 function calculateDamage() {
   player.damageDealt = Math.ceil((player.vita * player.vitaMultiplier) + (player.mana * player.manaMultiplier) +
    (player.might * player.mightMultiplier) + (player.will * player.willMultiplier) + (player.grace * player.graceMultiplier))
   $("#damageOutput").text(player.damageDealt);
+  deleteDamageDealt();
   outputCreatureDamage();
 }
