@@ -274,7 +274,7 @@ function outputCreatureDamage() {
   } else {
     $.each($(".creaturevita"), function(index, value) {
         
-        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "/" + $(value).text() + "</p>");
+        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "<br>-------------<br>" + $(value).text() + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 
         if(player.damagePercent > 75) {

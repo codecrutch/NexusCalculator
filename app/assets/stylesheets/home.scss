@@ -111,3 +111,14 @@ body {
 	}
 
 }
+
+
+/*
+
+PROGRESS BAR
+
+*/
+
+.progress {background: rgba(20, 18, 18, 1); border: 2px solid rgba(5, 5, 5, 1); border-radius: 4px; height: 20px;}
+.creature-health-bar {background: rgba(26, 161, 26, 1);} 
+.progress-striped .creature-health-bar {background-color: rgba(26, 161, 26, 1); background-image: -webkit-gradient(linear,0 100%,100% 0,color-stop(0.25,rgba(87, 75, 75, 0.66),color-stop(0.25,transparent),color-stop(0.5,transparent),color-stop(0.5,rgba(87, 75, 75, 0.66)),color-stop(0.75,rgba(87, 75, 75, 0.66)),color-stop(0.75,transparent),to(transparent))); background-image: -webkit-linear-gradient(45deg,rgba(87, 75, 75, 0.66) 25%,transparent 25%,transparent 50%,rgba(87, 75, 75, 0.66) 50%,rgba(87, 75, 75, 0.66) 75%,transparent 75%,transparent); background-image: linear-gradient(45deg,rgba(87, 75, 75, 0.66) 25%,transparent 25%,transparent 50%,rgba(87, 75, 75, 0.66) 50%,rgba(87, 75, 75, 0.66) 75%,transparent 75%,transparent); background-size: 13px 13px;}
