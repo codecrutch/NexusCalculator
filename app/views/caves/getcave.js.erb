@@ -2,6 +2,7 @@
 $("#creatures").empty();
 $("#boss").empty();
 $("#cave").html("<%= escape_javascript(@cave.cavename) %><p><h5><%= escape_javascript(@cave.requirements) %></h5>");
+var indexLoop = 0;
 <% @cave.creature.each do |c| %>
 <% if c.creaturename.downcase == @cave.boss.downcase %>
 //alert("creature creaturename: " + "<%= c.creaturename %>" + " Cave boss name: " + "<%= @cave.boss %>");
@@ -14,11 +15,13 @@ $("#boss").append("<div class='row'><div class='col-xs-4 col-md-1 creature-pad t
 	+ "</div></div>");
 <% else %>
 $("#creatures").append("<div class='col-xs-6 col-sm-6 col-md-1 creature-pad'>"
-	+ "<div class='progress'><div class='progress-bar progress-bar-success progress-bar-striped' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width:100%'>100% Complete (success)</div></div>"
+	+ "<div class='progress'><div id='creature-percent-" + indexLoop
+	+ "' class='progress-bar progress-bar-success progress-bar-striped' role='progressbar' aria-valuenow='100' aria-valuemin='0' aria-valuemax='100' style='width:100%'>100% Complete (success)</div></div>"
 	+ '<%= escape_javascript(image_tag(c.imagelocation)) %>'
 	+ "<span class='creaturename center-block'><%= escape_javascript(c.creaturename) %></span>" 
 	+ "</br><span style='display:none;' class='creaturevita'><%= escape_javascript(c.vita.to_s) %></span>" 
 	+ "</br><span style='display:none;' class='creatureac'><%= escape_javascript(c.ac.to_s) %></span>"
 	+ "</div>");
 <% end %>
+indexLoop++;
 <% end %>
