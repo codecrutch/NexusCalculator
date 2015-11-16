@@ -279,15 +279,15 @@ function outputCreatureDamage() {
 
         if(player.damagePercent > 55) {
            $("#creature-percent-" + index).removeClass()
-           $("#creature-percent-" + index).addClass("progress-bar progress-bar-success")
+           $("#creature-percent-" + index).addClass("progress-bar creature-health-text creature-health-bar progress-bar-success")
         }
         if(player.damagePercent < 55 && player.damagePercent > 27) {
           $("#creature-percent-" + index).removeClass()
-           $("#creature-percent-" + index).addClass("progress-bar progress-bar-warning")
+           $("#creature-percent-" + index).addClass("progress-bar creature-health-text progress-bar-warning")
         }
         if(player.damagePercent < 27) {
           $("#creature-percent-" + index).removeClass()
-           $("#creature-percent-" + index).addClass("progress-bar progress-bar-danger")
+           $("#creature-percent-" + index).addClass("progress-bar creature-health-text progress-bar-danger")
         }
         var el = "#creature-percent-" + index;
 
