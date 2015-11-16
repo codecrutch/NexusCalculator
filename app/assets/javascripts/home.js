@@ -255,10 +255,10 @@ function removeCreatures() {
   $("#creatures").empty();
 }
 
-function creatureDamageOutput(creature_vita) {
+function creatureDamageOutput(creature_vita, ac, curse) {
 
   //console.log("Creature vita = " + creature_vita + " and player damage = " + player.damageDealt + " Health left = " + (creature_vita - player.damageDealt));
-  var health_left = creature_vita - player.damageDealt;
+  var health_left = creature_vita - damageReduction(ac,50);
 
   if(health_left > 0) {
     player.damagePercent = ((health_left / creature_vita) * 100).toFixed(2);
@@ -273,7 +273,7 @@ function outputCreatureDamage() {
   if($("#cave").text() == "") { 
   } else {
     $.each($(".creaturevita"), function(index, value) {
-        creatureDamageOutput($(value).text());
+        creatureDamageOutput($(value).text(),-76,0);
         //$(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "<br>-------------<br>" + $(value).text() + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 
@@ -311,4 +311,12 @@ function calculateDamage() {
   $("#damageOutput").text(player.damageDealt);
   deleteDamageDealt();
   outputCreatureDamage();
+}
+
+function damageReduction(creature_ac, curse) {
+  var damageAtZeroAC = player.damageDealt;
+  var damageReduction = damageAtZeroAC * (((creature_ac * -1 ) - curse)  * 0.01);
+  var realDamage = damageAtZeroAC - damageReduction;
+  console.log(realDamage);
+  return realDamage;
 }
