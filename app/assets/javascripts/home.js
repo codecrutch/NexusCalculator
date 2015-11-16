@@ -261,7 +261,7 @@ function creatureDamageOutput(creature_vita) {
   var health_left = creature_vita - player.damageDealt;
 
   if(health_left > 0) {
-    player.damagePercent = Math.round((health_left / creature_vita) * 100);
+    player.damagePercent = ((health_left / creature_vita) * 100).toFixed(2);
     return health_left;
   } else {
     player.damagePercent = 0;
@@ -273,17 +273,21 @@ function outputCreatureDamage() {
   if($("#cave").text() == "") { 
   } else {
     $.each($(".creaturevita"), function(index, value) {
-        
-        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "<br>-------------<br>" + $(value).text() + "</p>");
+        creatureDamageOutput($(value).text());
+        //$(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "<br>-------------<br>" + $(value).text() + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 
-        if(player.damagePercent > 75) {
+        if(player.damagePercent > 55) {
+           $("#creature-percent-" + index).removeClass()
+           $("#creature-percent-" + index).addClass("progress-bar progress-bar-success")
         }
-        if(player.damagePercent < 75 && player.damagePercent > 35) {
-          $("#creature-percent:nth-child("+index+")").toggleClass("progress-bar-success progress-bar-warning");
+        if(player.damagePercent < 55 && player.damagePercent > 27) {
+          $("#creature-percent-" + index).removeClass()
+           $("#creature-percent-" + index).addClass("progress-bar progress-bar-warning")
         }
-        if(player.damagePercent < 35) {
-          $("#creature-percent:nth-child("+index+")").toggleClass("progress-bar-success progress-bar-danger")
+        if(player.damagePercent < 27) {
+          $("#creature-percent-" + index).removeClass()
+           $("#creature-percent-" + index).addClass("progress-bar progress-bar-danger")
         }
         var el = "#creature-percent-" + index;
 
