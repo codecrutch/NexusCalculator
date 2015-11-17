@@ -275,7 +275,8 @@ function outputCreatureDamage() {
   } else {
     $.each($(".creaturevita"), function(index, value) {
         //creatureDamageOutput($(value).text(),-76,0);
-        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text(),-76,50) + "<br>-------------<br>" + $(value).text() + "</p>");
+        var elCreatureAC = $(".creatureac").get(index);
+        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text(),Number($(elCreatureAC).text()), 50) + "<br>-------------<br>" + $(value).text() + "</p>");
         $(value).after("<p class='damage-dealt'>Damage: " + player.damageReal + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 
