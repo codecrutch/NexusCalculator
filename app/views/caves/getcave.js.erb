@@ -3,7 +3,7 @@ $("#creatures").empty();
 $("#boss").empty();
 $("#cave").html("<%= escape_javascript(@cave.cavename) %><p><h5><%= escape_javascript(@cave.requirements) %></h5>");
 var indexLoop = 0;
-<% @cave.creature.each do |c| %>
+<% @cave.creature.sort.each do |c| %>
 <% if c.creaturename.downcase == @cave.boss.downcase %>
 //alert("creature creaturename: " + "<%= c.creaturename %>" + " Cave boss name: " + "<%= @cave.boss %>");
 $("#boss").append("<div class='row'><div class='col-xs-4 col-md-2 creature-pad text-center'>"
