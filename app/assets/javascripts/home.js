@@ -14,6 +14,7 @@ var player = {
   damageDealt: 0,
   damagePercent: 0,
   damageReal: 0,
+  curse: 50,
 };
 
 
@@ -23,50 +24,14 @@ $(document).ready(function() {
   setMana(2292000);
 
   $("input").on('input', function() {
-
     getStats();
-    
-    
-
-    if($("button#mage-spell-title:contains('Mage')").length > 0) { 
-    // check to see if no spell was selected
-    } else {
-      getStats();
-      calculateDamage();
-    }
-
-    if($("button#warrior-spell-title:contains('Warrior')").length > 0) {
-
-    } else {
-      getStats();
-      calculateDamage();
-    }
-
-    if($("button#rogue-spell-title:contains('Rogue')").length > 0) {
-
-    } else {
-      getStats();
-      calculateDamage();
-    }
-    if($("button#poet-spell-title:contains('Poet')").length > 0) {
-
-    } else {
-      getStats();
-      calculateDamage();
-    }
-    /*alert("Players stats are:\nVita: " + player["vita"] +
-      "\nMana: " + player["mana"] +
-      "\nAC: " + player["ac"]);
-    */
+    calculateDamage();
   });
 
-  $("#mage-spell-dropdown li a").click(function() {
+  
+});
 
-    getStats();
-
-    $("button#mage-spell-title").text(this.innerHTML);
-    player.spell = this.innerHTML;
-    resetMultipliers();
+function spell(spellname) {
     switch(player.spell) {
         case("Hellfire"):
           player.manaMultiplier = 1.8;
@@ -84,18 +49,6 @@ $(document).ready(function() {
           player.manaMultiplier = 2;
           player.vitaMultiplier = 0.5;
         break;
-    }
-    calculateDamage();
-  });
-
-  $("#warrior-spell-dropdown li a").click(function() {
-
-    getStats();
-
-    $("button#warrior-spell-title").text(this.innerHTML);
-    player.spell = this.innerHTML;
-    resetMultipliers();
-    switch(player.spell) {
         case("Slash"):
           player.manaMultiplier = 0;
           player.vitaMultiplier = 0.0245;
@@ -137,20 +90,12 @@ $(document).ready(function() {
           player.manaMultiplier = 0;
           player.vitaMultiplier = 3;
         break;
-    }
-    calculateDamage();
-  });
-
-  $("#rogue-spell-dropdown li a").click(function() {
-
-    getStats();
-
-    $("button#rogue-spell-title").text(this.innerHTML);
-    player.spell = this.innerHTML;
-    resetMultipliers();
-    switch(player.spell) {
         case("Desperate Attack"):
           player.manaMultiplier = 1;
+          player.vitaMultiplier = 1;
+        break;
+        case("No Mana DA"):
+          player.manaMultiplier = 0;
           player.vitaMultiplier = 1;
         break;
         case("Lethal Strike"):
@@ -166,21 +111,9 @@ $(document).ready(function() {
           player.vitaMultiplier = 1.8;
         break;
         case("Assassinate"):                    // NEEDS CORRECT FORMULA
-          player.manaMultiplier = 0.5;
-          player.vitaMultiplier = 1.65;
+          player.manaMultiplier = 0.5;          //
+          player.vitaMultiplier = 1.65;         //
         break;
-    }
-    calculateDamage();
-  });
-
-  $("#poet-spell-dropdown li a").click(function() {
-
-    getStats();
-
-    $("button#poet-spell-title").text(this.innerHTML);
-    player.spell = this.innerHTML;
-    resetMultipliers();
-    switch(player.spell) {
         case("Retribution"):
           player.manaMultiplier = 0.34;
           player.vitaMultiplier = 0;
@@ -190,10 +123,8 @@ $(document).ready(function() {
           player.vitaMultiplier = 0.0245;
           mightMultiplier = 11.435
         break;
-    }
-    calculateDamage();
-  });
-});
+      }
+  }
 
 function getStats() {
   getVita();
@@ -202,6 +133,7 @@ function getStats() {
   getMight();
   getWill();
   getGrace();
+  spell(player.spell);
 }
 
 function resetMultipliers() {
@@ -276,7 +208,7 @@ function outputCreatureDamage() {
     $.each($(".creaturevita"), function(index, value) {
         //creatureDamageOutput($(value).text(),-76,0);
         var elCreatureAC = $(".creatureac").get(index);
-        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text(),Number($(elCreatureAC).text()), 50) + "<br>-------------<br>" + $(value).text() + "</p>");
+        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text(),Number($(elCreatureAC).text()), Number(player.curse)) + "<br>-------------<br>" + $(value).text() + "</p>");
         $(value).after("<p class='damage-dealt'>Damage: " + player.damageReal + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 

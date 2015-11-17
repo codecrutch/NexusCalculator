@@ -2,6 +2,27 @@
 $("#creatures").empty();
 $("#boss").empty();
 $("#cave").html("<%= escape_javascript(@cave.cavename) %><p><h5><%= escape_javascript(@cave.requirements) %></h5>");
+$("#cave").append("<div class='form-group'><select class='form-control' id='slept'><OPTION value=1>No sleep</OPTION><OPTION value=1.3>Slept</OPTION></div>");
+$("#cave").append("<div class='form-group'><select class='form-control' id='curses'><OPTION value=0>No curse</OPTION>			<OPTION value=20>Snare</OPTION>			<OPTION value=30>Vex</OPTION>			<OPTION value=40>Hinderance</OPTION>			<OPTION value=45>Ju jak curse</OPTION>			<OPTION selected value=50>Scourge</OPTION>			<OPTION value=56>Sc+Ee dh</OPTION>			<OPTION value=59>Sc+Sam dh</OPTION>			<OPTION value=62>Sc+Sa dh</OPTION></select></div>")
+$("#cave").append("<div class='form-group'><select class='form-control' id='spell-chosen'>" 
+	+ "<option selected disabled>Choose Spell</option><OPTION class=mage value='Hellfire'>Hellfire</OPTION> <OPTION class=mage value='Inferno'>Inferno</OPTION> <OPTION class=mage value='Sam Hellfire'>Sam Hellfire</OPTION> <OPTION class=mage value='Sa Hellfire'>Sa Hellfire</OPTION>" 
+	+ "<OPTION class=warrior value=Slash>Slash</OPTION><OPTION class=warrior value=Beserk>Beserk</OPTION><OPTION class=warrior value='Feral Beserk'>Feral Beserk</OPTION><OPTION class=warrior value=Whirlwind>Whirlwind</OPTION> <OPTION class=warrior value='Whirlwind (Kwi-sin)'>Whirlwind (Kwi-sin)</OPTION> <OPTION class=warrior value=Assault>Assault</OPTION> <OPTION class=warrior value=Karak>Karak</OPTION> <OPTION class=warrior value='Warrior Sa'>Warrior Sa</OPTION> <OPTION class=warriorsp value=Rend>Rend</OPTION> <OPTION class=warriorsp value=Townie>Townie</OPTION>"
+	+ "<OPTION class=rogue value='Desperate Attack'>Desperate Attack</OPTION> <OPTION class=rogue value='No Mana DA'>No Mana DA</OPTION> <OPTION class=rogue value=ls>Lethal Strike</OPTION> <OPTION class=rogue value='Sam Kae'>Sam Kae</OPTION> <OPTION class=rogue value='Rogue Sa'>Rogue Sa</OPTION>"
+	+ "<OPTION class=poet value='Retribution'>Retribution</OPTION> <OPTION class=poetsp value='Son-Kal'>Son-Kal</OPTION></div>")
+ $('#curses').on('change', function() {
+  player.curse = $(this).val();
+  getStats();
+  calculateDamage();
+  getStats();
+  });
+
+  $('#spell-chosen').on('change', function() {
+  player.spell = $(this).val();
+  getStats();
+  calculateDamage();
+  getStats();
+  });
+
 var indexLoop = 0;
 <% @cave.creature.sort.each do |c| %>
 <% if c.creaturename.downcase == @cave.boss.downcase %>
