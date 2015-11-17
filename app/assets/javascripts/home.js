@@ -13,13 +13,14 @@ var player = {
   spell: "",
   damageDealt: 0,
   damagePercent: 0,
+  damageReal: 0,
 };
 
 
 $(document).ready(function() { 
 
-  setVita(1245000);
-  setMana(2241323);
+  setVita(2043000);
+  setMana(2292000);
 
   $("input").on('input', function() {
 
@@ -258,7 +259,7 @@ function removeCreatures() {
 function creatureDamageOutput(creature_vita, ac, curse) {
 
   //console.log("Creature vita = " + creature_vita + " and player damage = " + player.damageDealt + " Health left = " + (creature_vita - player.damageDealt));
-  var health_left = creature_vita - damageReduction(ac,50);
+  var health_left = creature_vita - damageReduction(ac,curse,1);
 
   if(health_left > 0) {
     player.damagePercent = ((health_left / creature_vita) * 100).toFixed(2);
@@ -273,8 +274,9 @@ function outputCreatureDamage() {
   if($("#cave").text() == "") { 
   } else {
     $.each($(".creaturevita"), function(index, value) {
-        creatureDamageOutput($(value).text(),-76,0);
-        //$(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text()) + "<br>-------------<br>" + $(value).text() + "</p>");
+        //creatureDamageOutput($(value).text(),-76,0);
+        $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput($(value).text(),-76,50) + "<br>-------------<br>" + $(value).text() + "</p>");
+        $(value).after("<p class='damage-dealt'>Damage: " + player.damageReal + "</p>");
         var color_percent = "width:" + player.damagePercent + "%;"
 
         if(player.damagePercent > 55) {
@@ -303,20 +305,21 @@ function deleteDamageDealt() {
   $.each($(".damage-dealt"), function(index, value) {
     $(value).remove();
   })
+
 }
 
 function calculateDamage() {
   player.damageDealt = Math.ceil((player.vita * player.vitaMultiplier) + (player.mana * player.manaMultiplier) +
    (player.might * player.mightMultiplier) + (player.will * player.willMultiplier) + (player.grace * player.graceMultiplier))
   $("#damageOutput").text(player.damageDealt);
-  deleteDamageDealt();
+  deleteDamageDealt(); // Delete output from last selection, will be run in OutputCreatureDamage next
   outputCreatureDamage();
 }
 
-function damageReduction(creature_ac, curse) {
+function damageReduction(creature_ac, curse, doze) {
   var damageAtZeroAC = player.damageDealt;
-  var damageReduction = damageAtZeroAC * (((creature_ac * -1 ) - curse)  * 0.01);
-  var realDamage = damageAtZeroAC - damageReduction;
+  var realDamage = damageAtZeroAC * (1 + ((creature_ac + curse)/100.0)) * doze
   console.log(realDamage);
+  player.damageReal = realDamage;
   return realDamage;
 }
