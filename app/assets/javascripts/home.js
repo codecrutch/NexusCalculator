@@ -1,3 +1,12 @@
+
+$(document).ready(function() { 
+
+  player.setVita(2043000);
+  player.setMana(2292000);
+  
+});
+
+
 var player = {
   vita: 0,
   mana: 0,
@@ -189,29 +198,12 @@ var spell = {
 };
 
 var creature = {
-  name: "",
+  currentName: "",
   vita: 0,
   ac: 0,
   curse: 50,
   sleep: 1,
 }
-
-
-$(document).ready(function() { 
-
-  player.setVita(2043000);
-  player.setMana(2292000);
-
-  $("input").on('input', function() {
-    player.getStats();
-    spell.calculateDamage();
-  });
-
-  
-});
-
-
-
 
 
 function removeCreatures() {
@@ -237,6 +229,8 @@ function outputCreatureDamage() {
     $.each($(".creaturevita"), function(index, value) {
         //creatureDamageOutput($(value).text(),-76,0);
         var elCreatureAC = $(".creatureac").get(index);
+        var elCreatureName = $(".creaturename").get(index);
+        creature.currentName = $(elCreatureName).text();
         creature.vita = Number($(value).text());
         creature.ac = Number($(elCreatureAC).text());
         $(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput(creature.vita,creature.ac, creature.curse) + "<br>-------------<br>" + $(value).text() + "</p>");
@@ -256,10 +250,8 @@ function outputCreatureDamage() {
            $("#creature-percent-" + index).addClass("progress-bar creature-health-text progress-bar-danger")
         }
         var el = "#creature-percent-" + index;
-
-        $(el).attr({"style" : color_percent, "aria-valuenow": color_percent});
-        $(el).text(spell.damagePercent + "%");
-
+          $(el).attr({"style" : color_percent, "aria-valuenow": color_percent});
+          $(el).text(spell.damagePercent + "%");
 
     })
   }

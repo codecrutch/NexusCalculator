@@ -1,6 +1,59 @@
 <% if user_signed_in? %>
 <div class="container">
   <div class="row">
+
+    <section id="calculator">
+        <div class="row">
+          <div class="col-xs-12 col-lg-3 pull-right">
+            <div class="row hidden">
+            <div id="mgw" class="form-group">
+              <div class="hidden col-xs-12 col-md-2 col-large-1">
+                <div class="input-group">
+                <span class="input-group-addon">AC</span>
+                <input class="form-control" id="charAC" placeholder="AC" value="-95" size="3">
+              </div>
+              </div>
+              <div class="hidden col-xs-12 col-md-2 col-large-1">
+                <div class="input-group">
+                  <span class="input-group-addon">Might</span>
+                 <input class="form-control" id="charMight" placeholder="Might" value="135" size="3">
+               </div>
+             </div>
+                 <div class="hidden col-xs-12 col-md-2 col-large-1">
+                  <div class="input-group">
+                  <span class="input-group-addon">Grace</span>
+                 <input class="form-control" id="charGrace" placeholder="Grace" value="135" size="3">
+               </div>
+                 </div>
+                 <div class="hidden col-xs-12 col-md-2 col-large-1">
+                  <div class="input-group">
+                  <span class="input-group-addon">Will</span>
+                 <input class="form-control" id="charWill" placeholder="Will" value="135" size="3">
+               </div>
+                 </div>
+                </div>
+            </div>
+
+            </br>
+
+          
+
+          
+            <div class="row">
+              <div class="col-xs-12">
+                 <p></p>
+              </div>
+            </div>
+                
+            <div class="hidden row">
+              <div class="col-md-7 col-large-12">
+               <h3>Damage(0 ac): <span id="damageOutput"></span></h3>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
     <section id="cave-layout">
         <div id="caves" class="row">
           <div class="btn-group">
@@ -122,80 +175,7 @@
 
 
 
-    <section id="calculator">
-        <div class="row">
-          <div class="panel col-xs-12">
-            <div class="row">
-              <div class="col-xs-12 text-center">
-                <h2 class="title">Nexus Hunting Calculator</h2>
-                <h4>Please enter your character's stats.</h4>
-              </div>
-            </div>
-
-            <div class="row hidden-xs">
-            <div id="mgw" class="form-group">
-              <div class="col-xs-12 col-md-2 col-large-1">
-                <div class="input-group">
-                <span class="input-group-addon">AC</span>
-                <input class="form-control" id="charAC" placeholder="AC" value="-95" size="3">
-              </div>
-              </div>
-              <div class="col-xs-12 col-md-2 col-large-1">
-                <div class="input-group">
-                  <span class="input-group-addon">Might</span>
-                 <input class="form-control" id="charMight" placeholder="Might" value="135" size="3">
-               </div>
-             </div>
-                 <div class="col-xs-12 col-md-2 col-large-1">
-                  <div class="input-group">
-                  <span class="input-group-addon">Grace</span>
-                 <input class="form-control" id="charGrace" placeholder="Grace" value="135" size="3">
-               </div>
-                 </div>
-                 <div class="col-xs-12 col-md-2 col-large-1">
-                  <div class="input-group">
-                  <span class="input-group-addon">Will</span>
-                 <input class="form-control" id="charWill" placeholder="Will" value="135" size="3">
-               </div>
-                 </div>
-                </div>
-            </div>
-
-            </br>
-
-            <div class="row">
-              <div class="form-group">
-                <div class="col-md-8 col-large-12">
-                  <div class="input-group">
-                    <span class="input-group-addon vita">Vita</span>
-                    <input type="text" class="form-control bfh-number" id="charVita" placeholder="Character Vita" data-min="1000" data-max="99999999" size="19">
-                  </div>
-                </div>
-
-                <div class="col-md-8 col-large-12">
-                 <div class="input-group">
-                    <span class="input-group-addon mana">Mana</span>
-                    <input type="text" class="form-control bfh-number" id="charMana" placeholder="Character Mana" data-min="1000" data-max="99999999" size="19">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          
-            <div class="row">
-              <div class="col-xs-12">
-                 <p></p>
-              </div>
-            </div>
-                
-            <div class="row">
-              <div class="col-md-7 col-large-12">
-               <h3>Damage(0 ac): <span id="damageOutput"></span></h3>
-              </div>
-            </div>
-        </div>
-      </div>
-    </section>
+      
   </div>
 </div>
 
