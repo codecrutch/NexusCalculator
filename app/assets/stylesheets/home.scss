@@ -12,7 +12,10 @@ body {
 #creature-content {
 	padding: 30px;
 }
-
+.center {
+    margin: 0 auto;
+    width: 80%;
+}
 #creatureSelected {
   position: relative;
   top: 30px;
