@@ -6,6 +6,28 @@ $(document).ready(function() {
   
 });
 
+var options = {
+  load: function() {
+    $("#slept-chosen").val(this.sleep);
+    $("#curse-chosen").val(this.curse);
+    $("#spell-chosen").val(this.spell);
+    player.setVita(this.vita);
+    player.setMana(this.mana);
+  },
+  save: function() {
+    this.spell = $("#spell-chosen").val();
+    this.curse = $("#curse-chosen").val();
+    this.sleep = $("#slept-chosen").val();
+    this.vita = player.getVita();
+    this.mana = player.getMana();
+  },
+  spell: "",
+  curse: "",
+  sleep: "",
+  vita: 0,
+  mana: 0,
+}
+
 
 var player = {
   vita: 0,
@@ -33,10 +55,12 @@ var player = {
 
   getVita: function() {
     player.vita = $("#charVita").val();
+    return player.vita;
   },
 
   getMana: function() {
     player.mana = $("#charMana").val();
+    return player.mana;
   },
 
   getAC: function() {
