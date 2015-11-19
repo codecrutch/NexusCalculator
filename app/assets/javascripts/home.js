@@ -1,11 +1,3 @@
-
-$(document).ready(function() { 
-
-  player.setVita(2043000);
-  player.setMana(2292000);
-  
-});
-
 var options = {
   load: function() {
     $("#slept-chosen").val(this.sleep);
@@ -120,8 +112,7 @@ var spell = {
   },
   damageReduction: function(creature_ac, curse, doze) {
     var damageAtZeroAC = spell.damageDealt;
-    var realDamage = damageAtZeroAC * (1 + ((creature_ac + curse)/100.0)) * doze
-    console.log(realDamage);
+    var realDamage = damageAtZeroAC * (1 + ((creature_ac + curse)/100.0)) * doze;
     spell.damageReal = realDamage;
     return realDamage;
   },
