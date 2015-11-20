@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112002129) do
+ActiveRecord::Schema.define(version: 20151119025724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,25 @@ ActiveRecord::Schema.define(version: 20151112002129) do
     t.string   "drops"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "path"
+    t.string   "subpath"
+    t.string   "name"
+    t.integer  "vita"
+    t.integer  "mana"
+    t.integer  "might"
+    t.integer  "will"
+    t.integer  "grace"
+    t.string   "alignment"
+    t.string   "title"
+    t.string   "clan"
+    t.string   "clantitle"
+    t.string   "imagelocation"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "creatures", force: :cascade do |t|

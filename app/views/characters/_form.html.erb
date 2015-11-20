@@ -1,0 +1,110 @@
+<%= form_for(@character) do |f| %>
+<% if @character.errors.any? %>
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h2><%= pluralize(@character.errors.count, "error") %> prohibited this creature from being saved:</h2>
+        </div>
+        
+        <div class="panel-body">
+            <ul>
+                <% @character.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+<% end %>
+<div class="form-group">
+    <h2 class="text-danger">Required</h2>
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :path %></span>
+        <%= f.text_field :path, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Mage, Warrior, Rogue, Poet" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :alignment %></span>
+        <%= f.text_field :alignment, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Ohaeng, Ming-ken, Kwi-sin" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :name %></span>
+        <%= f.text_field :name, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Name" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon vita'><%= f.label :vita %></span>
+        <%= f.text_field :vita, class: "form-control bfh-number vita", size: 25, style: "border-radius:3px;", placeholder: "Vita" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon mana'><%= f.label :mana %></span>
+        <%= f.text_field :mana, class: "form-control bfh-number mana", size: 25, style: "border-radius:3px;", placeholder: "Mana" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :might %></span>
+        <%= f.text_field :might, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Might" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :will %></span>
+        <%= f.text_field :will, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Will" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :grace %></span>
+        <%= f.text_field :grace, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Grace" %>
+      </div>
+    <p>
+
+    <div class='input-group hidden'>
+        <span class='input-group-addon'><%= f.label :user_id %></span>
+        <%= f.text_field :user_id, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", value: current_user.id %>
+      </div>
+    <p>
+
+    <hr>
+    <h2 class="text-info">Optional</h2>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label 'Character Image' %></span>
+        <%= f.text_field :imagelocation, class: "form-control bfh-number", size: 45, style: "border-radius:3px;", placeholder: "http://nexustk.com/images/ch_10.gif" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :title %></span>
+        <%= f.text_field :title, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Character title" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :subpath %></span>
+        <%= f.text_field :subpath, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Ex. Barbarian" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :clan %></span>
+        <%= f.text_field :clan, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Clan name" %>
+      </div>
+    <p>
+
+    <div class='input-group'>
+        <span class='input-group-addon'><%= f.label :clantitle %></span>
+        <%= f.text_field :clantitle, class: "form-control bfh-number", size: 25, style: "border-radius:3px;", placeholder: "Clan title" %>
+      </div>
+    <p>
+
+    </br>
+    <%= f.submit %>
+    </br>
+</div>
+<% end %>

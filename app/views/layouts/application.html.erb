@@ -36,7 +36,8 @@
               <li><%= link_to 'New Cave', new_cave_path %></li>
               <li><%= link_to 'New Creature', new_creature_path %></li>
             <% end %>
-            <li><%= link_to "", edit_user_registration_path, class: "glyphicon glyphicon-user" %></li>
+            <li><%= link_to "Characters", characters_path %></li>
+            <li><%= link_to "", account_path, class: "glyphicon glyphicon-user" %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method=> :delete %></li>
           
           <% else %>
@@ -65,7 +66,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 "> © Copyright 2015 by
-            <%= link_to "Snyder-Dev", "http://www.snyder-dev.com" %>. All Rights Reserved. </div>
+            <%= link_to "Snyder-Dev", "#" %>. All Rights Reserved. </div>
           <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
           </div>
         </div>

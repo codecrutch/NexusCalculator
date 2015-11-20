@@ -6,8 +6,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :creatures
+  resources :creatures, :characters
   root 'home#index'
+  devise_scope :user do
+    get 'account', to: 'devise/registrations#edit'
+  end
+
+  get 'characters', to: 'characters#index'
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.

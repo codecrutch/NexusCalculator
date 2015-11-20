@@ -1,0 +1,35 @@
+
+ <!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Characters
+		  <%= link_to '', new_character_path, class: "glyphicon glyphicon-plus pull-right", style: "text-decoration: none;" %></h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="add-character-box" class="col-xs-12">
+
+              <p id="notice"><%= notice %></p>
+            </br>
+
+				<% @characters.each do |char| %>
+					<p><%= link_to char.name, char %></p>
+				<% end %>
+
+
+            <br>          
+
+      </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal end -->
+  

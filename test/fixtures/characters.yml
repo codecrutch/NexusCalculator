@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  vita: 1
+  mana: 1
+  path: MyString
+  subpath: MyString
+  imagelocation: MyString
+  might: 1
+  will: 1
+  grace: 1
+  alignment: MyString
+  title: MyString
+  clan: MyString
+
+two:
+  name: MyString
+  vita: 1
+  mana: 1
+  path: MyString
+  subpath: MyString
+  imagelocation: MyString
+  might: 1
+  will: 1
+  grace: 1
+  alignment: MyString
+  title: MyString
+  clan: MyString

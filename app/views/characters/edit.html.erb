@@ -1,0 +1,32 @@
+
+ <!-- Modal -->
+  <div class="modal" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Edit <%= @character.name %>
+		  <%= link_to '', new_character_path, class: "glyphicon glyphicon-plus pull-right" %></h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="edit-character-box" class="col-xs-12">
+
+              <p id="notice"><%= notice %></p>
+            </br>
+
+				    <%= render 'form' %>
+
+
+            <br>          
+
+      </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal end -->

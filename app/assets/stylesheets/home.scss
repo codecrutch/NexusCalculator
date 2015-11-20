@@ -8,6 +8,9 @@ $mana: #429CF5; // Mana Color
 body {
   font-family: impact;
 }
+div.field_with_errors {
+ display: inline;
+}
 
 #creature-content {
 	padding: 30px;
