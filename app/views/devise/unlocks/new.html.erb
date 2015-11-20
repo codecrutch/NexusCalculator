@@ -11,6 +11,15 @@
         <div class="modal-body">
           <div class="row">
             <div id="resend-box" class="col-xs-12">
+              <div id="alert">
+              <!-- DISPLAY DEVISE MESSAGES -->
+                <% flash.each do |key, value| %>
+                <span>
+                  <h1 style="color:red;"><%= value %></h1>
+                </span>
+          
+                <% end %>
+              </div>
             	<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
 				  <%= devise_error_messages! %>
 

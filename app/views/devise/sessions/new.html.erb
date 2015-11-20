@@ -12,9 +12,18 @@
         <div class="modal-body">
           <div class="row">
             <div id="login-box" class="col-xs-12">
-                
+              <div id="alert">
+              <!-- DISPLAY DEVISE MESSAGES -->
+                <% flash.each do |key, value| %>
+                <span>
+                  <h1 style="color:red;"><%= value %></h1>
+                </span>
+          
+                <% end %>
+              </div>
 
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <%= devise_error_messages! %>
                   <div><%= f.label :email %><br />
                   <%= f.email_field :email, size: 35, autofocus: true %></div>
 
