@@ -1,19 +1,20 @@
-<%= form_for(@character) do |f| %>
-<% if @character.errors.any? %>
-    <div class="panel panel-danger">
-        <div class="panel-heading">
-            <h2><%= pluralize(@character.errors.count, "error") %> prohibited this creature from being saved:</h2>
+<%= form_for(@character, remote: true) do |f| %>
+    <% if @character.errors.any? %>
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h2><%= pluralize(@character.errors.count, "error") %> prohibited this creature from being saved:</h2>
+            </div>
+            
+            <div class="panel-body">
+                <ul>
+                    <% @character.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
         </div>
-        
-        <div class="panel-body">
-            <ul>
-                <% @character.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                <% end %>
-            </ul>
-        </div>
-    </div>
-<% end %>
+    <% end %>
+
 <div class="form-group">
     <h2 class="text-danger">Required</h2>
     <div class='input-group'>
@@ -104,7 +105,8 @@
     <p>
 
     </br>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-info", id: "character-form-close", style: 'width: 180px !important;' %>
     </br>
+    <hr>
 </div>
 <% end %>

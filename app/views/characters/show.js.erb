@@ -1,0 +1,7 @@
+$("#character-index-modal").modal('toggle');
+$(".creatures").after('<%= escape_javascript(render "show") %>');
+$("#character-show-modal").modal('toggle');
+ $("#show-close").click(function() {
+    $("#character-show-modal").modal('toggle');
+    $("#characters-link").click();
+  })

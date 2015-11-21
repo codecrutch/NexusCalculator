@@ -1,0 +1,55 @@
+ <!-- Modal -->
+  <div class="modal" id="character-show-modal" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><%= link_to '', edit_character_path, class: "glyphicon glyphicon-edit pull-right", style: "text-decoration: none;", remote: true %></h2>
+          <h2 class="modal-title"><%= @character.name %><p><%= @character.title %></p></h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div id="show-character-box" class="col-xs-12">
+
+              <p id="notice"><%= notice %></p>
+            </br>
+            <div class="row">
+              <div class="col-xs-12">
+                <%= image_tag @character.imagelocation, class: "center-block", size: "100x100" %>
+              </div>
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12"><%= @character.alignment %> <%= @character.path %></div>
+                  <div class="col-xs-12"><%= @character.subpath %></div>
+                  <div class="col-xs-12"><%= @character.clan %></div>
+                  <div class="col-xs-12"><%= @character.clantitle %></div>
+                </div>
+              </div>
+
+              <div class="col-xs-12"><hr></div>
+
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12 vita">Vita: <%= @character.vita %></div>
+                  <div class="col-xs-12 mana">Mana: <%= @character.mana %></div>
+                  <div class="col-xs-12">M: <%= @character.might %> W: <%= @character.will %> G: <%= @character.grace %></div>
+                 </div>
+              </div>
+              
+              <div class="col-xs-12">
+                <hr>
+    			      <button type="button" id="show-close" class="close">Back</button>
+                <br>          
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- Modal end -->
+  

@@ -1,30 +1,29 @@
 
  <!-- Modal -->
-  <div class="modal" id="myModal" role="dialog">
+  <div class="modal" id="character-edit-modal" role="dialog">
     <div class="modal-dialog modal-md">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title">Edit <%= @character.name %>
-		  <%= link_to '', new_character_path, class: "glyphicon glyphicon-plus pull-right" %></h2>
+          <h2 class="modal-title">Edit <%= @character.name %></h2>
         </div>
         <div class="modal-body">
           <div class="row">
             <div id="edit-character-box" class="col-xs-12">
 
               <p id="notice"><%= notice %></p>
-            </br>
+            	</br>
 
 				    <%= render 'form' %>
 
-             <%= link_to 'Delete ' + @character.name,  { action: :destroy, id: @character.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    <hr>
+			 <%= link_to 'Delete ' + @character.name,  { action: :destroy, id: @character.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+   				 <hr>
+    <button type="button" id="edit-close" class="close pull-left">Back</button>
+</br>
+<hr>
 
-
-            <br>          
-
-      </div>
+     		</div>
           </div>
         </div>
       </div>

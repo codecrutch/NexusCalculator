@@ -1,21 +1,38 @@
 class CharactersController < ApplicationController
-	before_action :set_character, only: [:show, :edit, :update]
+	before_action :set_character, only: [:show, :edit, :update, :destroy]
 	def index
-		if !(user_signed_in?)
-			redirect_to :new_user_session
-		end
 		@characters = Character.where(user_id: current_user.id )
+		respond_to do |format|
+			if(!user_signed_in?)
+				format.html { redirect_to root_path, notice: "Please add a character"}
+			else
+				format.html { render :index, notice: "Characters" }
+				format.js
+			end
+		end
 	end
 
 	def show
 		@characters = Character.where(user_id: current_user.id) 
+		respond_to do |format|
+			format.html { render :show }
+			format.js {}
+		end	
 	end
 
 	def new
 		@character = Character.new
+		respond_to do |format|
+			format.html { render :new }
+			format.js {}
+		end	
 	end
 
 	def edit
+		respond_to do |format|
+			format.html { render :edit }
+			format.js {}
+		end	
 	end
 
 	def create
@@ -39,6 +56,13 @@ class CharactersController < ApplicationController
 			end
 		end
 	end
+
+	def destroy
+    @character.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Character was successfully deleted.' }
+    end
+  end
 
 	private
 
