@@ -23,7 +23,7 @@ class CavesController < ApplicationController
 
   def getcave
     @cave = Cave.find(params[:cave_id])
-    @characters = Character.all
+    @characters = Character.where(:user_id => current_user.id)
     @playername = params[:player]
 
     respond_to do |format|
