@@ -53,6 +53,17 @@
   </select>
  </div>
 
+ <div class='form-group'>
+  <select class='form-control' id='character-chosen'> 
+    <option selected disabled>Choose Character</option>
+    <%= @characters.each do |char| %>
+      <OPTION data-vita='<%= char.vita %>' data-mana='<%= char.mana %>' value='<%= char.name %>'><%= char.name %></OPTION>
+    <% end %>
+  </select>
+ </div>
+
+ <div id="player-name" class="hidden"></div>
+
   <div class='form-group'>
     
     <div class='col-large-12'>

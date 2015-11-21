@@ -3,6 +3,7 @@ var options = {
     $("#slept-chosen").val(this.sleep);
     $("#curse-chosen").val(this.curse);
     $("#spell-chosen").val(this.spell);
+    $("#character-chosen").val(this.character);
     player.setVita(this.vita);
     player.setMana(this.mana);
   },
@@ -10,9 +11,11 @@ var options = {
     this.spell = $("#spell-chosen").val();
     this.curse = $("#curse-chosen").val();
     this.sleep = $("#slept-chosen").val();
+    this.character = $("#character-chosen").val();
     this.vita = player.getVita();
     this.mana = player.getMana();
   },
+  character: "",
   spell: "",
   curse: "",
   sleep: "",

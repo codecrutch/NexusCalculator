@@ -41,8 +41,19 @@ var indexLoop = 0;
 
  $( document ).ready(function() {
   // ESTABLISH CHARACTER
- 	player.setVita(2043000);
-  	player.setMana(2292000);
+  
+  $('#character-chosen').on('change', function() {
+    $('#player-name').empty();
+  
+   player.name = $(this).val();  
+   player.setVita($(this).find(':selected').attr('data-vita'));
+   player.setMana($(this).find(':selected').attr('data-mana'));
+
+  player.getStats();
+  spell.calculateDamage();
+  player.getStats();
+  options.save()
+  });
   // CHECK TO SEE IF OPTIONS EXIST
  if(options.spell.length > 1) {
  	options.load();

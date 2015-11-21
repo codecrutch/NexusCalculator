@@ -23,6 +23,8 @@ class CavesController < ApplicationController
 
   def getcave
     @cave = Cave.find(params[:cave_id])
+    @characters = Character.all
+    @playername = params[:player]
 
     respond_to do |format|
       format.html { redirect_to @cave }
@@ -78,6 +80,6 @@ class CavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cave_params
-      params.require(:cave).permit(:cavename, :id, :some_parameter, :requirements, :coordinates, :boss, :drops)
+      params.require(:cave).permit(:cavename, :id, :requirements, :coordinates, :boss, :drops, :player)
     end
 end
