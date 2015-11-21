@@ -51,6 +51,9 @@ var indexLoop = 0;
    player.name = $(this).val();  
    player.setVita($(this).find(':selected').attr('data-vita'));
    player.setMana($(this).find(':selected').attr('data-mana'));
+   player.setMight($(this).find(':selected').attr('data-might'));
+   player.setGrace($(this).find(':selected').attr('data-grace'));
+   player.setWill($(this).find(':selected').attr('data-will'));
 
   player.getStats();
   spell.calculateDamage();

@@ -34,10 +34,6 @@ var player = {
   getStats: function() {
     player.getVita();
     player.getMana();
-    player.getAC();
-    player.getMight();
-    player.getWill();
-    player.getGrace();
     spell.getSpell(spell.name);
   },
   resetMultipliers: function() {
@@ -61,14 +57,14 @@ var player = {
   getAC: function() {
     player.ac = $("#charAC").val();
   },
-  getWill: function() {
-    player.might = $("#charMight").val();
+  setWill: function(number) {
+    player.might = number;
   },
-  getMight: function() {
-    player.will = $("#charWill").val();
+  setMight: function(number) {
+    player.will = number;
   },
-  getGrace: function() {
-    player.grace = $("#charGrace").val();
+  setGrace: function(number) {
+    player.grace = number;
   },
   setVita: function(number) {
     player.vita = number;
@@ -189,8 +185,8 @@ var spell = {
           spell.vitaMultiplier = 1;
         break;
         case("Lethal Strike"):
-          spell.manaMultiplier = 0.5;
-          spell.vitaMultiplier = 2.5;
+          spell.manaMultiplier = 2.5;
+          spell.vitaMultiplier = 0.5;
         break;
         case("Sam Kae"):
           spell.manaMultiplier = 0;
@@ -200,9 +196,13 @@ var spell = {
           spell.manaMultiplier = 0.45;
           spell.vitaMultiplier = 1.8;
         break;
-        case("Assassinate"):                    // NEEDS CORRECT FORMULA
-          spell.manaMultiplier = 0.5;          //
-          spell.vitaMultiplier = 1.65;         //
+        case("Assassinate"):                  // NEEDS CORRECT FORMULA
+          spell.manaMultiplier = 2.2;         //
+          spell.vitaMultiplier = 0.4;         //
+        break;
+        case("Critical Assassinate"):         // NEEDS CORRECT FORMULA
+          spell.manaMultiplier = 2.5;         //
+          spell.vitaMultiplier = 3;           //
         break;
         case("Retribution"):
           spell.manaMultiplier = 0.34;
@@ -316,8 +316,7 @@ function outputCreatureDamage() {
           $(elManaNeed).empty();
 
           if(spell.vitaNeededToKill < 1 && spell.manaNeededToKill < 1) {
-            $(elVitaNeed).append("One Hit");
-
+            //$(elVitaNeed).append("One Hit");
           } else if(player.vita == 0 && player.mana == 0) {
           } else if(spell.manaMultiplier == 0 && spell.vitaMultiplier == 0) {
           }else {

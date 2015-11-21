@@ -29,27 +29,27 @@
 <div class='form-group'>
   <select class='form-control' id='spell-chosen'> 
     <option selected disabled>Choose Spell</option>
-    <OPTION class=mage value='Hellfire'>Hellfire</OPTION>
-    <OPTION class=mage value='Inferno'>Inferno</OPTION>
-    <OPTION class=mage value='Sam Hellfire'>Sam Hellfire</OPTION>
-    <OPTION class=mage value='Sa Hellfire'>Sa Hellfire</OPTION>
-    <OPTION class=warrior value=Slash>Slash</OPTION>
-    <OPTION class=warrior value=Beserk>Beserk</OPTION>
-    <OPTION class=warrior value='Feral Beserk'>Feral Beserk</OPTION>
-    <OPTION class=warrior value=Whirlwind>Whirlwind</OPTION>
-    <OPTION class=warrior value='Whirlwind (Kwi-sin)'>Whirlwind (Kwi-sin)</OPTION>
-    <OPTION class=warrior value=Assault>Assault</OPTION>
-    <OPTION class=warrior value=Karak>Karak</OPTION>
-    <OPTION class=warrior value='Warrior Sa'>Warrior Sa</OPTION>
-    <OPTION class=warriorsp value=Rend>Rend</OPTION>
-    <OPTION class=warriorsp value=Townie>Townie</OPTION>
-    <OPTION class=rogue value='Desperate Attack'>Desperate Attack</OPTION>
-    <OPTION class=rogue value='No Mana DA'>No Mana DA</OPTION>
-    <OPTION class=rogue value='Lethal Strike'>Lethal Strike</OPTION>
-    <OPTION class=rogue value='Sam Kae'>Sam Kae</OPTION>
-    <OPTION class=rogue value='Rogue Sa'>Rogue Sa</OPTION>
-    <OPTION class=poet value='Retribution'>Retribution</OPTION>
-    <OPTION class=poetsp value='Son-Kal'>Son-Kal</OPTION>
+    <OPTION class='mage' value='Hellfire'>Hellfire</OPTION>
+    <OPTION class='mage' value='Inferno'>Inferno</OPTION>
+    <OPTION class='mage' value='Sam Hellfire'>Sam Hellfire</OPTION>
+    <OPTION class='mage' value='Sa Hellfire'>Sa Hellfire</OPTION>
+    <OPTION class='warrior' value='Slash'>Slash</OPTION>
+    <OPTION class='warrior' value='Beserk'>Beserk</OPTION>
+    <OPTION class='warrior' value='Feral Beserk'>Feral Beserk</OPTION>
+    <OPTION class='warrior' value='Whirlwind'>Whirlwind</OPTION>
+    <OPTION class='warrior' value='Whirlwind (Kwi-sin)'>Whirlwind (Kwi-sin)</OPTION>
+    <OPTION class='warrior' value='Assault'>Assault</OPTION>
+    <OPTION class='warrior' value='Karak'>Karak</OPTION>
+    <OPTION class='warrior' value='Warrior Sa'>Warrior Sa</OPTION>
+    <OPTION class='warriorsp' value='Rend'>Rend</OPTION>
+    <OPTION class='warriorsp' value='Townie'>Townie</OPTION>
+    <OPTION class='rogue' value='Desperate Attack'>Desperate Attack</OPTION>
+    <OPTION class='rogue' value='No Mana DA'>No Mana DA</OPTION>
+    <OPTION class='rogue' value='Lethal Strike'>Lethal Strike</OPTION>
+    <OPTION class='rogue' value='Sam Kae'>Sam Kae</OPTION>
+    <OPTION class='rogue' value='Rogue Sa'>Rogue Sa</OPTION>
+    <OPTION class='poet' value='Retribution'>Retribution</OPTION>
+    <OPTION class='poetsp' value='Son-Kal'>Son-Kal</OPTION>
   </select>
  </div>
 
@@ -57,7 +57,7 @@
   <select class='form-control' id='character-chosen'> 
     <option selected disabled>Choose Character</option>
     <%= @characters.each do |char| %>
-      <OPTION data-vita='<%= char.vita %>' data-mana='<%= char.mana %>' value='<%= char.name %>'><%= char.name %></OPTION>
+      <OPTION data-might='<%= char.might %>' data-grace='<%= char.grace %>' data-will='<%= char.will %>' data-vita='<%= char.vita %>' data-mana='<%= char.mana %>' value='<%= char.name %>'><%= char.name %></OPTION>
     <% end %>
   </select>
  </div>
