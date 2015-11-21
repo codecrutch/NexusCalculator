@@ -94,6 +94,8 @@ var spell = {
   willMultiplier: 0,
   graceMultiplier: 0,
   name: "",
+  vitaNeededToKill: 0,
+  manaNeededToKill: 0,
   damageDealt: 0,
   damagePercent: 0,
   damageReal: 0,
@@ -241,6 +243,42 @@ function creatureDamageOutput(creature_vita, ac, curse) {
     return 0;
   }
 }
+
+function calculateStatsNeeded() {
+  var vitaNeeded, manaNeeded;
+
+  if (spell.vitaMultiplier > 0  && spell.manaMultiplier > 0) { 
+    var ratio =  50 / 100; 
+    //use formular that calcs vita needed, using vita ratio
+    vitaNeeded = (creature.vita - spell.damageReal) / ((1 + ((creature.ac + creature.curse)/100)) * creature.sleep) / (spell.manaMultiplier * ratio + spell.vitaMultiplier) ;
+    manaNeeded = (Math.ceil(vitaNeeded) * ratio);
+  } else {
+    if (spell.vitaMultiplier > 0) {
+      vitaNeeded = calculateOneStatNeeded(spell.vitaMultiplier);
+      manaNeeded = 0;
+    } else {
+      manaNeeded = calculateOneStatNeeded(spell.manaMultiplier);    
+      vitaNeeded = 0;
+    }
+  }
+
+  if(vitaNeeded < 1) {
+    spell.vitaNeededToKill = 0;
+  } else {
+    spell.vitaNeededToKill = Math.ceil(vitaNeeded);
+  }
+  if(manaNeeded < 1) {
+    spell.manaNeededToKill = 0;
+  } else {
+    spell.manaNeededToKill = Math.ceil(manaNeeded);
+  }
+
+}
+function calculateOneStatNeeded(spellMultiplier) {
+  statNeeded = (creature.vita - spell.damageReal) / ((1 + ((creature.ac + creature.curse)/100)) * creature.sleep * spellMultiplier);    
+  return statNeeded;
+}
+
 function outputCreatureDamage() {
   if($("#cave").text() == "") { 
   } else {
@@ -271,7 +309,21 @@ function outputCreatureDamage() {
         var el = "#creature-percent-" + index;
           $(el).attr({"style" : color_percent, "aria-valuenow": color_percent});
           $(el).text(spell.damagePercent + "%");
+          calculateStatsNeeded();
+          var elVitaNeed = '#vita-needed-' + index;
+          var elManaNeed = '#mana-needed-' + index;
+          $(elVitaNeed).empty();
+          $(elManaNeed).empty();
 
+          if(spell.vitaNeededToKill < 1 && spell.manaNeededToKill < 1) {
+            $(elVitaNeed).append("One Hit");
+
+          } else if(player.vita == 0 && player.mana == 0) {
+          } else if(spell.manaMultiplier == 0 && spell.vitaMultiplier == 0) {
+          }else {
+            $(elVitaNeed).append("To One Hit:<p>" + (Number(spell.vitaNeededToKill) + Number(player.vita)));
+            $(elManaNeed).append((Number(spell.manaNeededToKill) + Number(player.mana)));
+          }
     })
   }
 }

@@ -17,7 +17,8 @@
 
 $(document).ready(function() {
   	$("#notice").fadeOut(1750);
-  	$.backstretch("http://www.nexusatlas.com/photo/newspics/Pueullabattles2.PNG");
+  	//$.backstretch("http://www.nexusatlas.com/photo/newspics/Pueullabattles2.PNG");
+    $.backstretch("http://www.nexusatlas.com/photo/newspics/kimchopeace2.PNG");
 
   	 $(window).load(function(){
         $('#myModal').modal('show');
