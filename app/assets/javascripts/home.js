@@ -253,7 +253,7 @@ function outputCreatureDamage() {
         creature.ac = Number($(elCreatureAC).text());
         creatureDamageOutput(creature.vita,creature.ac, creature.curse);
         //$(value).after("<p class='damage-dealt'>Vita Left:</br>" + creatureDamageOutput(creature.vita,creature.ac, creature.curse) + "<br>-------------<br>" + $(value).text() + "</p>");
-        $(value).after("<p class='damage-dealt'>Damage: " + spell.damageReal.toFixed(0) + "</p>");
+        //$(value).after("<p class='damage-dealt'>Damage: " + spell.damageReal.toFixed(0) + "</p>");
         var color_percent = "width:" + spell.damagePercent + "%;"
 
         if(spell.damagePercent > 55) {
