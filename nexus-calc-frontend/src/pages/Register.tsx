@@ -24,15 +24,42 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-200 via-purple-200 to-blue-300">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* SVG Wavy Background (more contrast, more shapes) */}
+      <div className="fixed inset-0 -z-10">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 1440 900"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-full"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient id="register-bg-gradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#fbc2eb" />
+              <stop offset="30%" stopColor="#a6c1ee" />
+              <stop offset="60%" stopColor="#f68084" />
+              <stop offset="100%" stopColor="#3a1c71" />
+            </linearGradient>
+          </defs>
+          <rect width="1440" height="900" fill="url(#register-bg-gradient)" />
+          <path d="M0,650 Q400,750 800,650 T1440,650 L1440,900 L0,900 Z" fill="#a18cd1" fillOpacity="0.7" />
+          <path d="M0,700 Q360,600 720,700 T1440,700 L1440,900 L0,900 Z" fill="#fbc2eb" fillOpacity="0.5" />
+          <path d="M0,800 Q360,900 720,800 T1440,800 L1440,900 L0,900 Z" fill="#f68084" fillOpacity="0.4" />
+          <path d="M0,850 Q500,900 1440,850 L1440,900 L0,900 Z" fill="#3a1c71" fillOpacity="0.3" />
+          <path d="M0,750 Q600,850 1440,750 L1440,900 L0,900 Z" fill="#fff" fillOpacity="0.2" />
+        </svg>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-10 flex flex-col gap-4"
       >
-        <h2 className="text-4xl font-bold mb-2 text-gray-900">Sign up</h2>
+        <h2 className="text-4xl font-bold mb-2 text-gray-900">Register</h2>
         <div className="mb-2 text-gray-600">
           Create an account or{' '}
-          <Link to="/login" className="text-purple-700 hover:underline">Sign in</Link>
+          <Link to="/login" className="text-purple-700 hover:underline">Login</Link>
         </div>
         <div>
           <label className="block mb-1 text-gray-700">Email address</label>
@@ -98,7 +125,7 @@ export default function Register() {
         </div>
         {success && <div className="text-green-600 mb-2 text-center">{success}</div>}
         {error && <div className="text-red-600 mb-2 text-center">{error}</div>}
-        <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-full text-lg transition-colors mt-2" type="submit">Sign up</button>
+        <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-full text-lg transition-colors mt-2" type="submit">Register</button>
         <div className="mt-4 text-center text-xs text-gray-400">
           By signing up to create an account, you are accepting our <span className="underline">terms of service</span> and <span className="underline">privacy policy</span>
         </div>
