@@ -40,38 +40,13 @@ export class AuthService {
     };
   }
 
-  async register(createUserDto: CreateUserDto) {
-    // Check if user already exists
-    const existingUser = await this.userRepository.findOne({
-      where: { email: createUserDto.email },
-    });
-    if (existingUser) {
-      throw new UnauthorizedException('User already exists');
-    }
-
-    // Hash password
-    const hashedPassword = await bcrypt.hash(
-      createUserDto.encrypted_password,
-      10,
-    );
-
-    // Create user
+  async register(dto: CreateUserDto) {
     const user = this.userRepository.create({
-      ...createUserDto,
-      encrypted_password: hashedPassword,
+      email: dto.email,
+      // Do not store plain password
     });
-
-    const savedUser = await this.userRepository.save(user);
-    const { encrypted_password, ...result } = savedUser;
-
-    // Generate JWT token
-    const payload = { email: result.email, sub: result.id };
-    return {
-      access_token: this.jwtService.sign(payload),
-      user: {
-        id: result.id,
-        email: result.email,
-      },
-    };
+    const hash = await bcrypt.hash(dto.password, 10);
+    user.encrypted_password = hash;
+    return this.userRepository.save(user);
   }
 }

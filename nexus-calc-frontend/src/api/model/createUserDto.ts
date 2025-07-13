@@ -8,5 +8,5 @@
 
 export interface CreateUserDto {
   email: string;
-  encrypted_password: string;
+  password: string;
 }

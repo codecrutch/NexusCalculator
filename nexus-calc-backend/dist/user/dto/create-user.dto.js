@@ -14,7 +14,7 @@ const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
 class CreateUserDto {
     email;
-    encrypted_password;
+    password;
 }
 exports.CreateUserDto = CreateUserDto;
 __decorate([
@@ -27,5 +27,5 @@ __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.MinLength)(6),
     __metadata("design:type", String)
-], CreateUserDto.prototype, "encrypted_password", void 0);
+], CreateUserDto.prototype, "password", void 0);
 //# sourceMappingURL=create-user.dto.js.map

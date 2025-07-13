@@ -9,5 +9,5 @@ export class CreateUserDto {
   @ApiProperty()
   @IsString()
   @MinLength(6)
-  encrypted_password: string;
+  password: string;
 }
