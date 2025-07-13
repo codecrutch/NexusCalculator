@@ -125,3 +125,125 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 - Database seeding with sample data available
 - Update this document as tasks are completed or requirements change.
 - Reference this checklist for progress tracking and next steps. 
+
+# Migration Plan: Step 6 - Frontend Integration & API Consumption
+
+## Technology Choices
+- **Frontend Framework:** React (with TypeScript)
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Data Fetching/State:** TanStack Query (React Query)
+
+## Step 6 Tasks
+
+- [x] Decide on frontend stack (Vite, Tailwind, TanStack Query)
+- [ ] Scaffold new React app with Vite (TypeScript template)
+- [ ] Install and configure Tailwind CSS
+- [ ] Install and configure TanStack Query
+- [ ] Set up API base URL with Vite environment variables
+- [ ] Set up Axios for API requests
+- [ ] Set up React Query provider
+- [ ] Create API utility modules (auth, characters, etc.)
+- [ ] Build authentication flow (login/register, JWT storage)
+- [ ] Build Characters page (list, detail)
+- [ ] Build integration for static assets (images)
+- [ ] Document asset usage and API integration in frontend README
+
+## Implementation Steps
+
+### 1. Scaffold React App with Vite
+```bash
+npm create vite@latest nexus-calc-frontend -- --template react-ts
+cd nexus-calc-frontend
+npm install
+```
+
+### 2. Install Tailwind CSS
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+Edit `tailwind.config.js`:
+```js
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: { extend: {} },
+  plugins: [],
+}
+```
+
+Edit `src/index.css`:
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Import in `src/main.tsx`:
+```ts
+import './index.css';
+```
+
+### 3. Install TanStack Query
+```bash
+npm install @tanstack/react-query
+```
+
+### 4. (Optional) Install Axios
+```bash
+npm install axios
+```
+
+### 5. Set Up API Base URL
+Create `.env` in the frontend root:
+```
+VITE_API_URL=http://localhost:3000
+```
+
+### 6. Set Up API Client
+Create `src/api/client.ts`:
+```ts
+import axios from 'axios';
+
+export const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  headers: { 'Content-Type': 'application/json' },
+});
+```
+
+### 7. Set Up React Query Provider
+In `src/main.tsx`:
+```tsx
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </React.StrictMode>
+);
+```
+
+### 8. Test Tailwind
+In `App.tsx`:
+```tsx
+export default function App() {
+  return <h1 className="text-4xl font-bold text-blue-600">Hello Nexus!</h1>;
+}
+```
+
+---
+
+**Next:**
+- Build out authentication flow (login/register, JWT storage)
+- Build Characters page and other entity pages
+- Integrate static asset URLs from backend
+- Document usage in frontend README 
