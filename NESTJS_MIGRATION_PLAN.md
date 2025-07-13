@@ -37,7 +37,7 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 - [x] Protect routes as needed
 
 ### 5. Asset Migration
-- [ ] Move static assets (images, stylesheets) to new public/static directory
+- [x] Move static assets (images, stylesheets) to new public/static directory
 
 ### 6. Frontend Strategy
 - [ ] Decide on frontend approach (SSR/SPA)
