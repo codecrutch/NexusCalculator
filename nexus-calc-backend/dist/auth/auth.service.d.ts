@@ -3,6 +3,11 @@ import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
+interface GoogleUserProfile {
+    email: string;
+    displayName: string;
+    googleId: string;
+}
 export declare class AuthService {
     private readonly userRepository;
     private readonly jwtService;
@@ -18,4 +23,6 @@ export declare class AuthService {
         };
     }>;
     register(dto: CreateUserDto): Promise<User>;
+    validateOrCreateGoogleUser({ email, displayName, googleId, }: GoogleUserProfile): Promise<User>;
 }
+export {};

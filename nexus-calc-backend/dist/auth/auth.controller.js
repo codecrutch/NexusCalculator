@@ -19,16 +19,35 @@ const local_auth_guard_1 = require("./local-auth.guard");
 const create_user_dto_1 = require("../user/dto/create-user.dto");
 const login_dto_1 = require("./dto/login.dto");
 const swagger_1 = require("@nestjs/swagger");
+const passport_1 = require("@nestjs/passport");
+const jwt_1 = require("@nestjs/jwt");
 let AuthController = class AuthController {
     authService;
-    constructor(authService) {
+    jwtService;
+    constructor(authService, jwtService) {
         this.authService = authService;
+        this.jwtService = jwtService;
     }
     async register(createUserDto) {
         return this.authService.register(createUserDto);
     }
     async login(loginDto) {
         return this.authService.login(loginDto);
+    }
+    async googleAuth() {
+    }
+    async googleAuthCallback(req, res) {
+        const { email, displayName, googleId } = req.user;
+        const user = await this.authService.validateOrCreateGoogleUser({
+            email,
+            displayName,
+            googleId,
+        });
+        console.log('JWT_SECRET in google callback:', process.env.JWT_SECRET);
+        const payload = { email: user.email, sub: user.id };
+        const token = this.jwtService.sign(payload);
+        console.log({ token });
+        res.redirect(`http://localhost:8080/login?token=${token}`);
     }
 };
 exports.AuthController = AuthController;
@@ -49,9 +68,26 @@ __decorate([
     __metadata("design:paramtypes", [login_dto_1.LoginDto]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "login", null);
+__decorate([
+    (0, common_1.Get)('google'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "googleAuth", null);
+__decorate([
+    (0, common_1.Get)('google/callback'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('google')),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Promise)
+], AuthController.prototype, "googleAuthCallback", null);
 exports.AuthController = AuthController = __decorate([
     (0, swagger_1.ApiTags)('auth'),
     (0, common_1.Controller)('auth'),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+    __metadata("design:paramtypes", [auth_service_1.AuthService,
+        jwt_1.JwtService])
 ], AuthController);
 //# sourceMappingURL=auth.controller.js.map

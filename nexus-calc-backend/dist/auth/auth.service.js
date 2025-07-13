@@ -86,6 +86,33 @@ let AuthService = class AuthService {
         user.encrypted_password = hash;
         return this.userRepository.save(user);
     }
+    async validateOrCreateGoogleUser({ email, displayName, googleId, }) {
+        let user = await this.userRepository.findOne({ where: { email } });
+        if (user)
+            return user;
+        const baseName = displayName?.replace(/[^a-zA-Z0-9]/g, '') || 'GoogleUser';
+        const existing = await this.userRepository.find({
+            where: { name: baseName },
+        });
+        const used = new Set(existing.map((u) => u.discriminator));
+        let discriminator = null;
+        for (let i = 1; i <= 9999; i++) {
+            const d = i.toString().padStart(4, '0');
+            if (!used.has(d)) {
+                discriminator = d;
+                break;
+            }
+        }
+        if (!discriminator)
+            throw new Error('All discriminators taken for this username');
+        user = this.userRepository.create({
+            email,
+            name: baseName,
+            discriminator,
+            encrypted_password: '',
+        });
+        return this.userRepository.save(user);
+    }
 };
 exports.AuthService = AuthService;
 exports.AuthService = AuthService = __decorate([
