@@ -20,6 +20,7 @@ const user_module_1 = require("./user/user.module");
 const character_module_1 = require("./character/character.module");
 const creature_module_1 = require("./creature/creature.module");
 const cave_module_1 = require("./cave/cave.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -46,6 +47,7 @@ exports.AppModule = AppModule = __decorate([
             character_module_1.CharacterModule,
             creature_module_1.CreatureModule,
             cave_module_1.CaveModule,
+            auth_module_1.AuthModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

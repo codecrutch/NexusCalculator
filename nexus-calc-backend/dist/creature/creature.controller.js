@@ -75,7 +75,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CreatureController.prototype, "remove", null);
 exports.CreatureController = CreatureController = __decorate([
-    (0, common_1.Controller)('creature'),
+    (0, common_1.Controller)('creatures'),
     __metadata("design:paramtypes", [creature_service_1.CreatureService])
 ], CreatureController);
 //# sourceMappingURL=creature.controller.js.map

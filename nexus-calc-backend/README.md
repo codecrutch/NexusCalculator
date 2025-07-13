@@ -21,205 +21,248 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-# NexusCalculator Backend
+# Nexus Calculator Backend
 
-A NestJS backend for the NexusCalculator application, migrated from Ruby on Rails.
+A NestJS backend for the Nexus Calculator application, migrated from Ruby on Rails.
 
 ## Prerequisites
 
 - Node.js (v18 or higher)
-- Docker (via Colima)
-- PostgreSQL (via Docker)
+- Docker (for PostgreSQL)
+- Colima (for Docker on macOS)
 
-## Development Setup
-
-### 1. Install Dependencies
+## Installation
 
 ```bash
 npm install
 ```
 
-### 2. Set Up Colima and PostgreSQL
-
-#### Start Colima (if not running)
-```bash
-colima start
-```
-
-#### Start PostgreSQL Container
-```bash
-# Run the setup script
-./scripts/setup-db.sh
-
-# Or manually:
-docker run --name nexus-postgres \
-  -e POSTGRES_DB=nexus_calc_dev \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -p 5432:5432 \
-  -d postgres:15
-```
-
-### 3. Environment Configuration
+## Environment Setup
 
 Create a `.env` file in the root directory:
 
 ```env
-# Database configuration
-DB_HOST=localhost
-DB_PORT=5432
-DB_USERNAME=postgres
-DB_PASSWORD=postgres
-DB_DATABASE=nexus_calc_dev
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_USERNAME=postgres
+DATABASE_PASSWORD=password
+DATABASE_NAME=nexus_calc_dev
+JWT_SECRET=your-super-secret-key
+JWT_EXPIRES_IN=1h
 ```
 
-### 4. Start Development Server
+## Database Management
+
+### Using npm scripts (Recommended)
+
+```bash
+# Start PostgreSQL container
+npm run db:start
+
+# Stop PostgreSQL container
+npm run db:stop
+
+# Reset PostgreSQL container (stop, remove, start)
+npm run db:reset
+
+# Check container status
+npm run db:status
+
+# Seed database with initial data
+npm run db:seed
+
+# Setup database with initialization scripts
+npm run db:setup
+```
+
+### Using the database manager script directly
+
+```bash
+# Start database
+node scripts/db-manager.js start
+
+# Stop database
+node scripts/db-manager.js stop
+
+# Reset database
+node scripts/db-manager.js reset
+
+# Check status
+node scripts/db-manager.js status
+
+# Seed database
+node scripts/db-manager.js seed
+```
+
+## Development
+
+### Start the development server
 
 ```bash
 npm run start:dev
 ```
 
-The API will be available at `http://localhost:3000`
+The server will be available at `http://localhost:3000`
 
-## Database Management
+### Build the application
 
-### Setup Database
 ```bash
-./scripts/setup-db.sh
+npm run build
 ```
 
-### Seed Database
+### Start production server
+
 ```bash
-./scripts/seed-db.sh
+npm run start:prod
 ```
 
-### Reset Database
+## Testing
+
+### Authentication Testing
+
+Test the complete authentication flow:
+
 ```bash
-./scripts/reset-db.sh
+npm run test:auth
+```
+
+This will:
+1. Register a new user
+2. Login to get a JWT token
+3. Test protected endpoints
+4. Test unauthorized access
+
+### API Testing
+
+Test all API endpoints:
+
+```bash
+npm run test:api
+```
+
+This will test:
+- Users endpoint
+- Characters endpoint
+- Creatures endpoint
+- Caves endpoint
+- Server status
+
+### Unit Testing
+
+```bash
+# Run tests
+npm run test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:cov
+
+# Run e2e tests
+npm run test:e2e
 ```
 
 ## API Endpoints
 
-### Users
-- `POST /user` - Create user
-- `GET /user` - Get all users
-- `GET /user/:id` - Get user by ID
-- `PATCH /user/:id` - Update user
-- `DELETE /user/:id` - Delete user
+### Authentication
+- `POST /auth/register` - Register a new user
+- `POST /auth/login` - Login and get JWT token
 
-### Characters
-- `POST /character` - Create character
-- `GET /character` - Get all characters
-- `GET /character/:id` - Get character by ID
-- `PATCH /character/:id` - Update character
-- `DELETE /character/:id` - Delete character
+### Users (Protected)
+- `GET /users` - Get all users
+- `GET /users/:id` - Get specific user
+- `GET /users/profile` - Get current user profile
+- `POST /users` - Create user
+- `PATCH /users/:id` - Update user
+- `DELETE /users/:id` - Delete user
 
-### Caves
-- `POST /cave` - Create cave
-- `GET /cave` - Get all caves
-- `GET /cave/:id` - Get cave by ID
-- `PATCH /cave/:id` - Update cave
-- `DELETE /cave/:id` - Delete cave
+### Characters (Protected)
+- `GET /characters` - Get all characters
+- `GET /characters/:id` - Get specific character
+- `POST /characters` - Create character
+- `PATCH /characters/:id` - Update character
+- `DELETE /characters/:id` - Delete character
 
-### Creatures
-- `POST /creature` - Create creature
-- `GET /creature` - Get all creatures
-- `GET /creature/:id` - Get creature by ID
-- `PATCH /creature/:id` - Update creature
-- `DELETE /creature/:id` - Delete creature
+### Creatures (Public)
+- `GET /creatures` - Get all creatures
+- `GET /creatures/:id` - Get specific creature
+- `POST /creatures` - Create creature
+- `PATCH /creatures/:id` - Update creature
+- `DELETE /creatures/:id` - Delete creature
 
-## Data Models
+### Caves (Public)
+- `GET /caves` - Get all caves
+- `GET /caves/:id` - Get specific cave
+- `POST /caves` - Create cave
+- `PATCH /caves/:id` - Update cave
+- `DELETE /caves/:id` - Delete cave
 
-### User
-- `email` (string, unique)
-- `encrypted_password` (string)
-- Devise fields for authentication
+## Authentication
 
-### Character
-- `name` (string)
-- `path` (string)
-- `subpath` (string, optional)
-- `vita`, `mana`, `might`, `will`, `grace` (integers)
-- `alignment` (string)
-- `title`, `clan`, `clantitle` (strings, optional)
-- `imagelocation` (string, optional)
-- `user` (relationship to User)
+The application uses JWT (JSON Web Tokens) for authentication. Protected endpoints require a valid JWT token in the Authorization header:
 
-### Cave
-- `cavename` (string)
-- `requirements` (string, optional)
-- `coordinates` (string, optional)
-- `boss` (string, optional)
-- `drops` (string, optional)
-- `creatures` (relationship to Creature)
-
-### Creature
-- `creaturename` (string)
-- `vita`, `ac` (integers)
-- `imagelocation` (string, optional)
-- `cave` (relationship to Cave)
-
-## Development Commands
-
-```bash
-# Start development server
-npm run start:dev
-
-# Build for production
-npm run build
-
-# Run tests
-npm run test
-
-# Run e2e tests
-npm run test:e2e
-
-# Lint code
-npm run lint
+```
+Authorization: Bearer <your-jwt-token>
 ```
 
-## Docker Commands
+## Database Schema
+
+The application uses PostgreSQL with the following main entities:
+
+- **Users**: Authentication and user management
+- **Characters**: Player characters with stats
+- **Creatures**: Game creatures and monsters
+- **Caves**: Game locations and dungeons
+
+## Development Scripts
 
 ```bash
-# Start PostgreSQL
-docker start nexus-postgres
+# Code formatting
+npm run format
 
-# Stop PostgreSQL
-docker stop nexus-postgres
+# Linting
+npm run lint
 
-# Remove PostgreSQL container
-docker rm nexus-postgres
-
-# View PostgreSQL logs
-docker logs nexus-postgres
+# Debug mode
+npm run start:debug
 ```
 
 ## Troubleshooting
 
 ### Database Connection Issues
-1. Ensure Colima is running: `colima status`
-2. Check if PostgreSQL container is running: `docker ps`
-3. Verify `.env` file has correct database settings
-4. Restart the development server
+1. Make sure PostgreSQL container is running: `npm run db:status`
+2. Check environment variables in `.env` file
+3. Restart database: `npm run db:reset`
 
-### Port Conflicts
-If port 5432 is already in use, modify the Docker run command to use a different port:
-```bash
-docker run --name nexus-postgres \
-  -e POSTGRES_DB=nexus_calc_dev \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -p 5433:5432 \
-  -d postgres:15
-```
-Then update your `.env` file to use port 5433.
+### Authentication Issues
+1. Check JWT_SECRET in `.env` file
+2. Ensure user exists in database
+3. Verify JWT token is not expired
+
+### Server Issues
+1. Check if port 3000 is available
+2. Verify all dependencies are installed
+3. Check logs for specific error messages
 
 ## Migration from Rails
 
-This backend replaces the original Ruby on Rails application with:
-- TypeScript/NestJS backend
-- TypeORM for database management
-- PostgreSQL database (same as original)
-- RESTful API endpoints
-- Validation using class-validator
-- Modular architecture with separate modules for each entity
+This NestJS backend is a migration from the original Ruby on Rails application. Key changes:
+
+- **Framework**: Rails → NestJS
+- **Language**: Ruby → TypeScript
+- **Database**: PostgreSQL (unchanged)
+- **Authentication**: Devise → JWT + Passport
+- **ORM**: ActiveRecord → TypeORM
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License.

@@ -11,6 +11,7 @@ import { UserModule } from './user/user.module';
 import { CharacterModule } from './character/character.module';
 import { CreatureModule } from './creature/creature.module';
 import { CaveModule } from './cave/cave.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { CaveModule } from './cave/cave.module';
     CharacterModule,
     CreatureModule,
     CaveModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

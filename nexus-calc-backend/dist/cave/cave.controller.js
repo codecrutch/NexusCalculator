@@ -75,7 +75,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CaveController.prototype, "remove", null);
 exports.CaveController = CaveController = __decorate([
-    (0, common_1.Controller)('cave'),
+    (0, common_1.Controller)('caves'),
     __metadata("design:paramtypes", [cave_service_1.CaveService])
 ], CaveController);
 //# sourceMappingURL=cave.controller.js.map

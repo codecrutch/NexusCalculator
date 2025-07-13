@@ -32,9 +32,9 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 - [x] Add validation and DTOs
 
 ### 4. Authentication & Authorization
-- [ ] Set up Passport.js (JWT or session-based)
-- [ ] Implement user registration/login
-- [ ] Protect routes as needed
+- [x] Set up Passport.js (JWT strategy)
+- [x] Implement user registration/login
+- [x] Protect routes as needed
 
 ### 5. Asset Migration
 - [ ] Move static assets (images, stylesheets) to new public/static directory
@@ -65,6 +65,17 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 - **Entity Relationships**: User ↔ Character, Cave ↔ Creature
 - **Database Management**: Scripts for setup, seeding, and reset
 
+### ✅ Authentication & Authorization (Complete)
+- **JWT Authentication**: Token-based authentication with Passport.js
+- **User Registration**: Secure user registration with password hashing
+- **User Login**: Email/password authentication
+- **Protected Routes**: JWT guards for sensitive endpoints
+- **Password Hashing**: bcryptjs for secure password storage
+- **Auth Endpoints**:
+  - `POST /auth/register` - User registration
+  - `POST /auth/login` - User login
+  - `GET /user/profile` - Get user profile (protected)
+
 ### ✅ Database Management Scripts
 - **`scripts/setup-db.sh`**: Sets up PostgreSQL in Colima
 - **`scripts/seed-db.sh`**: Seeds database with sample data
@@ -78,10 +89,38 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 
 ---
 
+## Authentication Implementation Details
+
+### JWT Configuration
+- **Secret**: Configurable via `JWT_SECRET` environment variable
+- **Expiration**: 24 hours
+- **Strategy**: Passport JWT strategy with Bearer token
+
+### Protected Routes
+- `GET /user` - Get all users (protected)
+- `GET /user/profile` - Get current user profile (protected)
+- `GET /user/:id` - Get user by ID (protected)
+- `PATCH /user/:id` - Update user (protected)
+- `DELETE /user/:id` - Delete user (protected)
+
+### Public Routes
+- `POST /user` - Create user (public, for registration)
+- `POST /auth/register` - User registration (public)
+- `POST /auth/login` - User login (public)
+
+### Security Features
+- **Password Hashing**: bcryptjs with salt rounds
+- **JWT Tokens**: Secure token-based authentication
+- **Input Validation**: DTOs with class-validator
+- **Error Handling**: Proper error responses for auth failures
+
+---
+
 ## Notes
 - Backend directory: `nexus-calc-backend`
 - Database: PostgreSQL (via Colima/Docker)
 - API Base URL: `http://localhost:3000`
+- Authentication: JWT with Passport.js
 - All CRUD endpoints tested and working
 - Database seeding with sample data available
 - Update this document as tasks are completed or requirements change.

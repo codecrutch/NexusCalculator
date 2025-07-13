@@ -1,9 +1,17 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { CaveService } from './cave.service';
 import { CreateCaveDto } from './dto/create-cave.dto';
 import { UpdateCaveDto } from './dto/update-cave.dto';
 
-@Controller('cave')
+@Controller('caves')
 export class CaveController {
   constructor(private readonly caveService: CaveService) {}
 
