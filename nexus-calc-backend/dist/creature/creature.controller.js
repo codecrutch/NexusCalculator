@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const creature_service_1 = require("./creature.service");
 const create_creature_dto_1 = require("./dto/create-creature.dto");
 const update_creature_dto_1 = require("./dto/update-creature.dto");
+const swagger_1 = require("@nestjs/swagger");
 let CreatureController = class CreatureController {
     creatureService;
     constructor(creatureService) {
@@ -40,6 +41,7 @@ let CreatureController = class CreatureController {
 };
 exports.CreatureController = CreatureController;
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Create a new creature' }),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -47,12 +49,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CreatureController.prototype, "create", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Get all creatures' }),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CreatureController.prototype, "findAll", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Get a creature by id' }),
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -60,6 +64,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CreatureController.prototype, "findOne", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Update a creature by id' }),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -68,6 +73,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CreatureController.prototype, "update", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Delete a creature by id' }),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -75,6 +81,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CreatureController.prototype, "remove", null);
 exports.CreatureController = CreatureController = __decorate([
+    (0, swagger_1.ApiTags)('creatures'),
     (0, common_1.Controller)('creatures'),
     __metadata("design:paramtypes", [creature_service_1.CreatureService])
 ], CreatureController);

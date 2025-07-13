@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const character_service_1 = require("./character.service");
 const create_character_dto_1 = require("./dto/create-character.dto");
 const update_character_dto_1 = require("./dto/update-character.dto");
+const swagger_1 = require("@nestjs/swagger");
 let CharacterController = class CharacterController {
     characterService;
     constructor(characterService) {
@@ -40,6 +41,7 @@ let CharacterController = class CharacterController {
 };
 exports.CharacterController = CharacterController;
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Create a new character' }),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -47,12 +49,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CharacterController.prototype, "create", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Get all characters' }),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], CharacterController.prototype, "findAll", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Get a character by id' }),
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -60,6 +64,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CharacterController.prototype, "findOne", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Update a character by id' }),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -68,6 +73,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CharacterController.prototype, "update", null);
 __decorate([
+    (0, swagger_1.ApiOperation)({ summary: 'Delete a character by id' }),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -75,6 +81,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], CharacterController.prototype, "remove", null);
 exports.CharacterController = CharacterController = __decorate([
+    (0, swagger_1.ApiTags)('characters'),
     (0, common_1.Controller)('characters'),
     __metadata("design:paramtypes", [character_service_1.CharacterService])
 ], CharacterController);
