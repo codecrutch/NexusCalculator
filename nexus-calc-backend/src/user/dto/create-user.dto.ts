@@ -16,6 +16,14 @@ export class CreateUserDto {
   password: string;
 
   @ApiProperty({
+    description: 'Optional permissions array',
+    required: false,
+    type: [String],
+    default: [],
+  })
+  permissions?: string[];
+
+  @ApiProperty({
     description: 'Optional discriminator, will be generated if not provided',
     required: false,
   })

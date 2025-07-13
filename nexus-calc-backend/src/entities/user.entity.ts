@@ -61,6 +61,9 @@ export class User {
   @Column({ nullable: true })
   unconfirmed_email: string;
 
+  @Column('simple-array', { default: '' })
+  permissions: string[];
+
   @CreateDateColumn()
   created_at: Date;
 

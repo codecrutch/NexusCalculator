@@ -287,3 +287,42 @@ To use these in your frontend, reference the URLs as shown above.
 - They will be available at `/assets/images/...` on your server
 
 ---
+
+## Database Migrations (TypeORM)
+
+### Prerequisites
+- Ensure Colima is running and Docker context is set to Colima:
+  ```sh
+  yarn db:colima-start
+  ```
+- Ensure your Postgres container is running:
+  ```sh
+  yarn db:setup
+  ```
+- Ensure your `.env` file is configured with the correct DB credentials.
+
+### Creating a Migration
+1. Make your entity changes in `src/entities/`.
+2. Generate a migration (from the backend root):
+   ```sh
+   yarn ts-node ./node_modules/typeorm/cli.js migration:generate ./migrations/your-migration-name -d ./src/data-source.ts
+   ```
+   - This will create a new migration file in `migrations/`.
+   - If you see "No changes in database schema were found", check your entity changes and database connection.
+
+### Running Migrations
+Apply all pending migrations to your database:
+```sh
+yarn ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/data-source.ts
+```
+
+### Troubleshooting
+- If you get connection errors, ensure Colima and your Postgres container are running, and your `.env` matches the container credentials.
+- If you get permission errors with Docker volumes, make sure your `db/` directory is owned by your user.
+- If you see "No changes in database schema were found", your database may already be in sync, or you may need to reset/recreate it.
+- If you need to reset the database, stop and remove the Postgres container, then run `yarn db:setup` again.
+
+### Useful Scripts
+- `yarn db:colima-start` — Start Colima and set Docker context
+- `yarn db:setup` — Start a persistent Postgres container
+- `yarn db:colima-status` — Check Colima and Docker context status

@@ -8,6 +8,7 @@ import {
   Delete,
   UseGuards,
   Request,
+  ForbiddenException,
 } from '@nestjs/common';
 import { Request as ExpressRequest } from 'express';
 import { UserService } from './user.service';
@@ -15,6 +16,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { User } from '../entities/user.entity';
 
 @ApiTags('users')
 @Controller('users')
@@ -30,7 +32,11 @@ export class UserController {
   @ApiOperation({ summary: 'Get all users' })
   @UseGuards(JwtAuthGuard)
   @Get()
-  findAll() {
+  findAll(@Request() req: ExpressRequest & { user: User }) {
+    const user = req.user;
+    if (!user.permissions || !user.permissions.includes('read_users')) {
+      throw new ForbiddenException('You do not have permission to view users.');
+    }
     return this.userService.findAll();
   }
 

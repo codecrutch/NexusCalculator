@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-type User = { id: number; email: string; name: string; discriminator: string };
+type User = { id: number; email: string; name: string; discriminator: string; permissions: string[] };
 type AuthContextType = {
   user: User | null;
   token: string | null;
@@ -49,9 +49,4 @@ export function useAuth() {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error('useAuth must be used within AuthProvider');
   return ctx;
-}
-
-// Helper to format Discord-style username
-export function formatUsername(user: { name: string; discriminator: string }) {
-  return `${user.name}#${user.discriminator}`;
 } 

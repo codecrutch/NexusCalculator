@@ -32,7 +32,7 @@ import { AuthModule } from './auth/auth.module';
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_DATABASE'),
         autoLoadEntities: true,
-        synchronize: true, // Set to false in production
+        synchronize: false,
       }),
       inject: [ConfigService],
     }),

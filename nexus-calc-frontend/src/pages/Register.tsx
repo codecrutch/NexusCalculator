@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { register as registerApi } from '../api/auth';
-import { Link } from 'react-router-dom';
+import { register as registerApi, login as loginApi } from '../api/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -9,6 +10,8 @@ export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const { login } = useAuth();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -16,7 +19,10 @@ export default function Register() {
     setSuccess('');
     try {
       await registerApi(name, email, password);
-      setSuccess('Registration successful! You can now log in.');
+      // Immediately log in
+      const data = await loginApi(email, password);
+      login(data.access_token, { ...data.user, permissions: data.user.permissions ?? [] });
+      navigate('/');
     } catch {
       setError('Registration failed');
     }
@@ -71,12 +77,12 @@ export default function Register() {
         <h2 className="text-4xl font-bold mb-2 text-gray-900">Register</h2>
         <div className="mb-2 text-gray-600">
           Create an account or{' '}
-          <Link to="/login" className="text-purple-700 hover:underline">Login</Link>
+          <Link to="/login" className="text-green-700 hover:underline">Login</Link>
         </div>
         <div>
           <label className="block mb-1 text-gray-700">Email address</label>
           <input
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             type="email"
             placeholder="Email address"
             value={email}
@@ -87,7 +93,7 @@ export default function Register() {
         <div>
           <label className="block mb-1 text-gray-700">Username</label>
           <input
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400"
             type="text"
             placeholder="Username"
             value={name}
@@ -98,7 +104,7 @@ export default function Register() {
         <div className="relative">
           <label className="block mb-1 text-gray-700">Password</label>
           <input
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-400 pr-10"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-400 pr-10"
             type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             value={password}
@@ -125,7 +131,7 @@ export default function Register() {
         </div>
         {success && <div className="text-green-600 mb-2 text-center">{success}</div>}
         {error && <div className="text-red-600 mb-2 text-center">{error}</div>}
-        <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 rounded-full text-lg transition-colors mt-2" type="submit">Register</button>
+        <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full text-lg transition-colors mt-2" type="submit">Register</button>
         <div className="mt-4 text-center text-xs text-gray-400">
           By signing up to create an account, you are accepting our <span className="underline">terms of service</span> and <span className="underline">privacy policy</span>
         </div>

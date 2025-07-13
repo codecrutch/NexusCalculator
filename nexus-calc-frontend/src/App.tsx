@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import { useAuth, formatUsername } from './context/AuthContext';
+import { useAuth } from './context/AuthContext';
+import { formatUsername } from './utils/formatUsername';
 import React, { useState, useRef, useEffect } from 'react';
+import DisplayUsers from './pages/DisplayUsers';
 
 export default function App() {
   const { user, logout } = useAuth();
@@ -53,7 +55,16 @@ export default function App() {
                 {formatUsername(user)}
               </span>
               {menuOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow-lg z-50">
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg z-50">
+                  {user.permissions?.includes('view:users') && (
+                    <Link
+                      to="/users"
+                      className="block px-4 py-2 text-gray-700 hover:bg-green-100 hover:text-green-900 transition"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      User List
+                    </Link>
+                  )}
                   <button
                     className="w-full text-left px-4 py-2 text-gray-700 hover:bg-green-100 hover:text-green-900 transition"
                     onClick={() => { logout(); setMenuOpen(false); }}
@@ -70,6 +81,7 @@ export default function App() {
         <Route path="/" element={<div className="p-4">Home</div>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/users" element={<DisplayUsers />} />
       </Routes>
     </BrowserRouter>
   );

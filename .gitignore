@@ -81,3 +81,6 @@ Thumbs.db
 
 # Node
 node_modules
+dist
+nexus-calc-backend/dist
+nexus-calc-frontend/dist

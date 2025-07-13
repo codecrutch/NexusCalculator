@@ -23,7 +23,8 @@ export default function Login() {
       axios.get('http://localhost:3000/users/profile', {
         headers: { Authorization: `Bearer ${token}` }
       }).then(res => {
-        login(token, res.data);
+        const user = { ...res.data, permissions: res.data.permissions ?? [] };
+        login(token, user);
         window.location.href = '/';
       }).catch(() => {
         // Remove token from URL if login fails
@@ -43,16 +44,16 @@ export default function Login() {
     setError('');
     try {
       const data = await loginApi(email, password);
-      login(data.access_token, data.user);
+      login(data.access_token, { ...data.user, permissions: data.user.permissions ?? [] });
     } catch {
       setError('Invalid credentials');
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center py-8">
       {/* SVG Wavy Background for Login (more top and bottom waves, rich green scheme) */}
-      <div className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
+      <div className="fixed inset-0 w-screen h-screen -z-10 pointer-events-none">
         <svg
           width="100%"
           height="100%"
