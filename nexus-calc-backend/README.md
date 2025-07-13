@@ -266,3 +266,24 @@ This NestJS backend is a migration from the original Ruby on Rails application. 
 ## License
 
 This project is licensed under the MIT License.
+
+## Static Assets
+
+All static assets (images, backgrounds, etc.) are served from the `public/assets/images/` directory.
+
+### Example Asset URLs
+
+You can access images directly via HTTP:
+
+```
+http://localhost:3000/assets/images/Anchorite/bloodbane.gif
+http://localhost:3000/assets/images/Assassin/cutthroat.gif
+http://localhost:3000/assets/images/Backgrounds/wilderness.png
+```
+
+To use these in your frontend, reference the URLs as shown above.
+
+- Place new images in `public/assets/images/` (or subfolders)
+- They will be available at `/assets/images/...` on your server
+
+---
