@@ -8,6 +8,17 @@ export class CreateUserDto {
 
   @ApiProperty()
   @IsString()
+  name: string;
+
+  @ApiProperty()
+  @IsString()
   @MinLength(6)
   password: string;
+
+  @ApiProperty({
+    description: 'Optional discriminator, will be generated if not provided',
+    required: false,
+  })
+  @IsString()
+  discriminator?: string;
 }

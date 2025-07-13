@@ -15,6 +15,8 @@ let User = class User {
     id;
     email;
     encrypted_password;
+    name;
+    discriminator;
     reset_password_token;
     reset_password_sent_at;
     remember_created_at;
@@ -43,6 +45,14 @@ __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
 ], User.prototype, "encrypted_password", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "name", void 0);
+__decorate([
+    (0, typeorm_1.Column)(),
+    __metadata("design:type", String)
+], User.prototype, "discriminator", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: true }),
     __metadata("design:type", String)
@@ -100,6 +110,7 @@ __decorate([
     __metadata("design:type", Date)
 ], User.prototype, "updated_at", void 0);
 exports.User = User = __decorate([
-    (0, typeorm_1.Entity)('users')
+    (0, typeorm_1.Entity)('users'),
+    (0, typeorm_1.Index)(['name', 'discriminator'], { unique: true })
 ], User);
 //# sourceMappingURL=user.entity.js.map

@@ -45,12 +45,42 @@ let AuthService = class AuthService {
             user: {
                 id: user.id,
                 email: user.email,
+                name: user.name,
+                discriminator: user.discriminator,
             },
         };
     }
     async register(dto) {
+        const existingEmail = await this.userRepository.findOne({
+            where: { email: dto.email },
+        });
+        if (existingEmail) {
+            throw new common_1.BadRequestException('Email is already registered');
+        }
+        const existing = await this.userRepository.find({
+            where: { name: dto.name },
+        });
+        const used = new Set(existing.map((u) => u.discriminator));
+        let discriminator = dto.discriminator;
+        if (!discriminator) {
+            for (let i = 1; i <= 9999; i++) {
+                const d = i.toString().padStart(4, '0');
+                if (!used.has(d)) {
+                    discriminator = d;
+                    break;
+                }
+            }
+            if (!discriminator) {
+                throw new common_1.BadRequestException('All discriminators taken for this username');
+            }
+        }
+        else if (used.has(discriminator)) {
+            throw new common_1.BadRequestException('That username and discriminator is already taken');
+        }
         const user = this.userRepository.create({
             email: dto.email,
+            name: dto.name,
+            discriminator,
         });
         const hash = await bcrypt.hash(dto.password, 10);
         user.encrypted_password = hash;

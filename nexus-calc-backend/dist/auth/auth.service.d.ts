@@ -13,6 +13,8 @@ export declare class AuthService {
         user: {
             id: any;
             email: any;
+            name: any;
+            discriminator: any;
         };
     }>;
     register(dto: CreateUserDto): Promise<User>;

@@ -2,6 +2,8 @@ export declare class User {
     id: number;
     email: string;
     encrypted_password: string;
+    name: string;
+    discriminator: string;
     reset_password_token: string;
     reset_password_sent_at: Date;
     remember_created_at: Date;

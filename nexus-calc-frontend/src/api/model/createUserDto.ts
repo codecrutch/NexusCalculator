@@ -8,5 +8,8 @@
 
 export interface CreateUserDto {
   email: string;
+  name: string;
   password: string;
+  /** Optional discriminator, will be generated if not provided */
+  discriminator?: string;
 }

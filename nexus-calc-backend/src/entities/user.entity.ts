@@ -4,9 +4,11 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  Index,
 } from 'typeorm';
 
 @Entity('users')
+@Index(['name', 'discriminator'], { unique: true })
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
@@ -16,6 +18,12 @@ export class User {
 
   @Column()
   encrypted_password: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  discriminator: string; // e.g., '1234'
 
   @Column({ nullable: true })
   reset_password_token: string;
