@@ -78,3 +78,6 @@ config/application.yml
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Node
+node_modules
