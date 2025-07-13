@@ -9,7 +9,6 @@ export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
-  const [marketing, setMarketing] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -110,18 +109,6 @@ export default function Register() {
               </svg>
             )}
           </button>
-        </div>
-        <div className="flex items-center gap-2 mt-2">
-          <input
-            id="marketing"
-            type="checkbox"
-            checked={marketing}
-            onChange={e => setMarketing(e.target.checked)}
-            className="accent-purple-600"
-          />
-          <label htmlFor="marketing" className="text-sm text-gray-600">
-            I do not want to receive emails with advertising, news, suggestions or marketing promotions
-          </label>
         </div>
         {success && <div className="text-green-600 mb-2 text-center">{success}</div>}
         {error && <div className="text-red-600 mb-2 text-center">{error}</div>}
