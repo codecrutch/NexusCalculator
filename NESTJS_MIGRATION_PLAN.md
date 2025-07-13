@@ -40,9 +40,9 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 - [x] Move static assets (images, stylesheets) to new public/static directory
 
 ### 6. Frontend Strategy
-- [ ] Decide on frontend approach (SSR/SPA)
-- [ ] Scaffold frontend project (if applicable)
-- [ ] Connect frontend to NestJS API
+- [x] Decide on frontend approach (SSR/SPA)
+- [x] Scaffold frontend project (if applicable)
+- [] Connect frontend to NestJS API
 
 ### 7. Testing
 - [ ] Set up Jest for unit/integration tests

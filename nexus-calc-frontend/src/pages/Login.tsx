@@ -23,12 +23,12 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* SVG Wavy Background for Login (greens, golds, sands, more contrast, more shapes) */}
-      <div className="fixed inset-0 -z-10">
+      {/* SVG Wavy Background for Login (more top and bottom waves, rich green scheme) */}
+      <div className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
         <svg
           width="100%"
           height="100%"
-          viewBox="0 0 1440 900"
+          viewBox="0 0 1440 810"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
@@ -36,21 +36,35 @@ export default function Login() {
         >
           <defs>
             <linearGradient id="login-bg-gradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#fffbe6" /> {/* light sand */}
-              <stop offset="30%" stopColor="#ffe066" /> {/* bright gold */}
-              <stop offset="60%" stopColor="#43e97b" /> {/* vivid green */}
-              <stop offset="100%" stopColor="#0a3d62" /> {/* deep blue-green */}
+              <stop offset="0%" stopColor="#fffbe6" />
+              <stop offset="30%" stopColor="#ffe066" />
+              <stop offset="60%" stopColor="#43e97b" />
+              <stop offset="100%" stopColor="#0a3d62" />
             </linearGradient>
           </defs>
-          <rect width="1440" height="900" fill="url(#login-bg-gradient)" />
-          <path d="M0,600 Q360,700 720,600 T1440,600 L1440,900 L0,900 Z" fill="#ffe066" fillOpacity="0.7" />
-          <path d="M0,700 Q400,800 900,700 T1440,700 L1440,900 L0,900 Z" fill="#43e97b" fillOpacity="0.5" />
-          <path d="M0,800 Q500,900 1440,800 L1440,900 L0,900 Z" fill="#0a3d62" fillOpacity="0.4" />
-          <path d="M0,850 Q200,870 1440,850 L1440,900 L0,900 Z" fill="#fffbe6" fillOpacity="0.6" />
-          <path d="M0,750 Q600,850 1440,750 L1440,900 L0,900 Z" fill="#f7b32b" fillOpacity="0.3" />
+          <rect width="1440" height="810" fill="url(#login-bg-gradient)" />
+          {/* More top waves */}
+          <path d="M0,40 Q350,0 700,60 T1440,40 L1440,0 L0,0 Z" fill="#43e97b" fillOpacity="0.18" />
+          <path d="M0,60 Q500,10 1440,60 L1440,0 L0,0 Z" fill="#ffe066" fillOpacity="0.12" />
+          <path d="M0,100 Q200,40 1440,100 L1440,0 L0,0 Z" fill="#0a3d62" fillOpacity="0.10" />
+          <path d="M0,120 Q600,40 1440,120 L1440,0 L0,0 Z" fill="#0a3d62" fillOpacity="0.18" />
+          <path d="M0,140 Q800,60 1440,140 L1440,0 L0,0 Z" fill="#ffe066" fillOpacity="0.13" />
+          <path d="M0,160 Q400,100 1440,160 L1440,0 L0,0 Z" fill="#fffbe6" fillOpacity="0.10" />
+          <path d="M0,180 Q1000,80 1440,180 L1440,0 L0,0 Z" fill="#43e97b" fillOpacity="0.09" />
+          {/* Existing top waves */}
+          <path d="M0,80 Q400,0 900,100 T1440,80 L1440,0 L0,0 Z" fill="#43e97b" fillOpacity="0.25" />
+          <path d="M0,120 Q600,40 1440,120 L1440,0 L0,0 Z" fill="#0a3d62" fillOpacity="0.18" />
+          <path d="M0,160 Q800,60 1440,160 L1440,0 L0,0 Z" fill="#ffe066" fillOpacity="0.13" />
+          {/* Bottom/center waves */}
+          <path d="M0,600 Q400,850 800,600 T1440,600 L1440,810 L0,810 Z" fill="#ffe066" fillOpacity="0.7" />
+          <path d="M0,700 Q360,900 720,700 T1440,700 L1440,810 L0,810 Z" fill="#43e97b" fillOpacity="0.5" />
+          <path d="M0,800 Q500,950 1440,800 L1440,810 L0,810 Z" fill="#0a3d62" fillOpacity="0.3" />
+          <path d="M0,850 Q200,1000 1440,850 L1440,810 L0,810 Z" fill="#fffbe6" fillOpacity="0.4" />
+          <path d="M0,875 Q600,1050 1440,875 L1440,810 L0,810 Z" fill="#f7b32b" fillOpacity="0.3" />
+          <path d="M0,890 Q800,1100 1440,890 L1440,810 L0,810 Z" fill="#43e97b" fillOpacity="0.2" />
         </svg>
       </div>
-      <form onSubmit={handleSubmit} className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10 flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-10 flex flex-col gap-4">
         <h2 className="text-4xl font-bold mb-2 text-gray-900">Login</h2>
         <div className="mb-2 text-gray-600">
           Welcome back! Need an account?{' '}

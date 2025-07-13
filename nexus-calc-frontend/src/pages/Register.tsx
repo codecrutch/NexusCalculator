@@ -24,12 +24,12 @@ export default function Register() {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* SVG Wavy Background (more contrast, more shapes) */}
-      <div className="fixed inset-0 -z-10">
+      {/* SVG Wavy Background (distinct green waves for register, with more top waves) */}
+      <div className="fixed inset-0 w-screen h-screen -z-10 overflow-hidden">
         <svg
           width="100%"
           height="100%"
-          viewBox="0 0 1440 900"
+          viewBox="0 0 1440 810"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-full h-full"
@@ -37,18 +37,31 @@ export default function Register() {
         >
           <defs>
             <linearGradient id="register-bg-gradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor="#fbc2eb" />
-              <stop offset="30%" stopColor="#a6c1ee" />
-              <stop offset="60%" stopColor="#f68084" />
-              <stop offset="100%" stopColor="#3a1c71" />
+              <stop offset="0%" stopColor="#fffbe6" />
+              <stop offset="30%" stopColor="#ffe066" />
+              <stop offset="60%" stopColor="#43e97b" />
+              <stop offset="100%" stopColor="#0a3d62" />
             </linearGradient>
           </defs>
-          <rect width="1440" height="900" fill="url(#register-bg-gradient)" />
-          <path d="M0,650 Q400,750 800,650 T1440,650 L1440,900 L0,900 Z" fill="#a18cd1" fillOpacity="0.7" />
-          <path d="M0,700 Q360,600 720,700 T1440,700 L1440,900 L0,900 Z" fill="#fbc2eb" fillOpacity="0.5" />
-          <path d="M0,800 Q360,900 720,800 T1440,800 L1440,900 L0,900 Z" fill="#f68084" fillOpacity="0.4" />
-          <path d="M0,850 Q500,900 1440,850 L1440,900 L0,900 Z" fill="#3a1c71" fillOpacity="0.3" />
-          <path d="M0,750 Q600,850 1440,750 L1440,900 L0,900 Z" fill="#fff" fillOpacity="0.2" />
+          <rect width="1440" height="810" fill="url(#register-bg-gradient)" />
+          {/* More top waves */}
+          <path d="M0,40 Q300,0 700,60 T1440,40 L1440,0 L0,0 Z" fill="#43e97b" fillOpacity="0.18" />
+          <path d="M0,60 Q500,10 1440,60 L1440,0 L0,0 Z" fill="#ffe066" fillOpacity="0.12" />
+          <path d="M0,100 Q200,40 1440,100 L1440,0 L0,0 Z" fill="#0a3d62" fillOpacity="0.10" />
+          <path d="M0,120 Q600,40 1440,120 L1440,0 L0,0 Z" fill="#0a3d62" fillOpacity="0.18" />
+          <path d="M0,140 Q800,60 1440,140 L1440,0 L0,0 Z" fill="#ffe066" fillOpacity="0.13" />
+          <path d="M0,160 Q400,100 1440,160 L1440,0 L0,0 Z" fill="#fffbe6" fillOpacity="0.10" />
+          <path d="M0,180 Q1000,80 1440,180 L1440,0 L0,0 Z" fill="#43e97b" fillOpacity="0.09" />
+          {/* Existing top waves */}
+          <path d="M0,80 Q400,0 900,100 T1440,80 L1440,0 L0,0 Z" fill="#43e97b" fillOpacity="0.25" />
+          <path d="M0,120 Q600,40 1440,120 L1440,0 L0,0 Z" fill="#0a3d62" fillOpacity="0.18" />
+          <path d="M0,160 Q800,60 1440,160 L1440,0 L0,0 Z" fill="#ffe066" fillOpacity="0.13" />
+          {/* Bottom/center waves */}
+          <path d="M0,700 Q300,600 700,750 T1440,700 L1440,810 L0,810 Z" fill="#43e97b" fillOpacity="0.5" />
+          <path d="M0,780 Q400,810 900,780 T1440,790 L1440,810 L0,810 Z" fill="#ffe066" fillOpacity="0.4" />
+          <path d="M0,810 Q200,790 1440,810 L1440,810 L0,810 Z" fill="#0a3d62" fillOpacity="0.2" />
+          <path d="M0,730 Q600,850 1440,730 L1440,810 L0,810 Z" fill="#fffbe6" fillOpacity="0.3" />
+          <path d="M0,800 Q800,810 1440,800 L1440,810 L0,810 Z" fill="#f7b32b" fillOpacity="0.2" />
         </svg>
       </div>
       <form
