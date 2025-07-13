@@ -21,78 +21,205 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# NexusCalculator Backend
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A NestJS backend for the NexusCalculator application, migrated from Ruby on Rails.
 
-## Project setup
+## Prerequisites
 
-```bash
-$ npm install
-```
+- Node.js (v18 or higher)
+- Docker (via Colima)
+- PostgreSQL (via Docker)
 
-## Compile and run the project
+## Development Setup
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Run tests
+### 1. Install Dependencies
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
+### 2. Set Up Colima and PostgreSQL
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+#### Start Colima (if not running)
+```bash
+colima start
+```
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+#### Start PostgreSQL Container
+```bash
+# Run the setup script
+./scripts/setup-db.sh
+
+# Or manually:
+docker run --name nexus-postgres \
+  -e POSTGRES_DB=nexus_calc_dev \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5432:5432 \
+  -d postgres:15
+```
+
+### 3. Environment Configuration
+
+Create a `.env` file in the root directory:
+
+```env
+# Database configuration
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+DB_DATABASE=nexus_calc_dev
+```
+
+### 4. Start Development Server
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+npm run start:dev
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+The API will be available at `http://localhost:3000`
 
-## Resources
+## Database Management
 
-Check out a few resources that may come in handy when working with NestJS:
+### Setup Database
+```bash
+./scripts/setup-db.sh
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Seed Database
+```bash
+./scripts/seed-db.sh
+```
 
-## Support
+### Reset Database
+```bash
+./scripts/reset-db.sh
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## API Endpoints
 
-## Stay in touch
+### Users
+- `POST /user` - Create user
+- `GET /user` - Get all users
+- `GET /user/:id` - Get user by ID
+- `PATCH /user/:id` - Update user
+- `DELETE /user/:id` - Delete user
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Characters
+- `POST /character` - Create character
+- `GET /character` - Get all characters
+- `GET /character/:id` - Get character by ID
+- `PATCH /character/:id` - Update character
+- `DELETE /character/:id` - Delete character
 
-## License
+### Caves
+- `POST /cave` - Create cave
+- `GET /cave` - Get all caves
+- `GET /cave/:id` - Get cave by ID
+- `PATCH /cave/:id` - Update cave
+- `DELETE /cave/:id` - Delete cave
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### Creatures
+- `POST /creature` - Create creature
+- `GET /creature` - Get all creatures
+- `GET /creature/:id` - Get creature by ID
+- `PATCH /creature/:id` - Update creature
+- `DELETE /creature/:id` - Delete creature
+
+## Data Models
+
+### User
+- `email` (string, unique)
+- `encrypted_password` (string)
+- Devise fields for authentication
+
+### Character
+- `name` (string)
+- `path` (string)
+- `subpath` (string, optional)
+- `vita`, `mana`, `might`, `will`, `grace` (integers)
+- `alignment` (string)
+- `title`, `clan`, `clantitle` (strings, optional)
+- `imagelocation` (string, optional)
+- `user` (relationship to User)
+
+### Cave
+- `cavename` (string)
+- `requirements` (string, optional)
+- `coordinates` (string, optional)
+- `boss` (string, optional)
+- `drops` (string, optional)
+- `creatures` (relationship to Creature)
+
+### Creature
+- `creaturename` (string)
+- `vita`, `ac` (integers)
+- `imagelocation` (string, optional)
+- `cave` (relationship to Cave)
+
+## Development Commands
+
+```bash
+# Start development server
+npm run start:dev
+
+# Build for production
+npm run build
+
+# Run tests
+npm run test
+
+# Run e2e tests
+npm run test:e2e
+
+# Lint code
+npm run lint
+```
+
+## Docker Commands
+
+```bash
+# Start PostgreSQL
+docker start nexus-postgres
+
+# Stop PostgreSQL
+docker stop nexus-postgres
+
+# Remove PostgreSQL container
+docker rm nexus-postgres
+
+# View PostgreSQL logs
+docker logs nexus-postgres
+```
+
+## Troubleshooting
+
+### Database Connection Issues
+1. Ensure Colima is running: `colima status`
+2. Check if PostgreSQL container is running: `docker ps`
+3. Verify `.env` file has correct database settings
+4. Restart the development server
+
+### Port Conflicts
+If port 5432 is already in use, modify the Docker run command to use a different port:
+```bash
+docker run --name nexus-postgres \
+  -e POSTGRES_DB=nexus_calc_dev \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres \
+  -p 5433:5432 \
+  -d postgres:15
+```
+Then update your `.env` file to use port 5433.
+
+## Migration from Rails
+
+This backend replaces the original Ruby on Rails application with:
+- TypeScript/NestJS backend
+- TypeORM for database management
+- PostgreSQL database (same as original)
+- RESTful API endpoints
+- Validation using class-validator
+- Modular architecture with separate modules for each entity

@@ -9,27 +9,27 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 ### 1. Project Setup
 - [x] Scaffold new NestJS project (`nexus-calc-backend/`)
 - [x] Set up TypeScript configuration
-- [ ] Configure environment variables
-- [ ] Set up Git and initial commit
+- [x] Configure environment variables
+- [x] Set up Git and initial commit
 
 ### 2. Database & ORM
 - [x] Choose and configure database (PostgreSQL)
 - [x] Set up TypeORM/Prisma
-- [ ] Define entities for:
-  - [ ] User
-  - [ ] Character
-  - [ ] Creature
-  - [ ] Cave
-- [ ] Set up migrations and seed data
+- [x] Define entities for:
+  - [x] User
+  - [x] Character
+  - [x] Creature
+  - [x] Cave
+- [x] Set up migrations and seed data
 
 ### 3. API Design & Controllers
-- [ ] Create RESTful controllers for:
-  - [ ] Users
-  - [ ] Characters
-  - [ ] Creatures
-  - [ ] Caves
-- [ ] Implement CRUD endpoints
-- [ ] Add validation and DTOs
+- [x] Create RESTful controllers for:
+  - [x] Users
+  - [x] Characters
+  - [x] Creatures
+  - [x] Caves
+- [x] Implement CRUD endpoints
+- [x] Add validation and DTOs
 
 ### 4. Authentication & Authorization
 - [ ] Set up Passport.js (JWT or session-based)
@@ -55,8 +55,34 @@ This document tracks the migration of the NexusCalculator app from Ruby on Rails
 
 ---
 
+## Completed Features
+
+### ✅ Backend API (Complete)
+- **NestJS Backend**: Fully functional TypeScript backend
+- **TypeORM Integration**: Database operations with PostgreSQL
+- **CRUD Operations**: Complete REST API for all entities
+- **Data Validation**: DTOs with class-validator
+- **Entity Relationships**: User ↔ Character, Cave ↔ Creature
+- **Database Management**: Scripts for setup, seeding, and reset
+
+### ✅ Database Management Scripts
+- **`scripts/setup-db.sh`**: Sets up PostgreSQL in Colima
+- **`scripts/seed-db.sh`**: Seeds database with sample data
+- **`scripts/reset-db.sh`**: Resets database completely
+- **`scripts/status-db.sh`**: Checks database and container status
+
+### ✅ Documentation
+- **Comprehensive README**: Setup, API endpoints, troubleshooting
+- **Migration Notes**: Tracked progress and decisions
+- **Script Documentation**: Clear usage instructions
+
+---
+
 ## Notes
 - Backend directory: `nexus-calc-backend`
-- Database: PostgreSQL
+- Database: PostgreSQL (via Colima/Docker)
+- API Base URL: `http://localhost:3000`
+- All CRUD endpoints tested and working
+- Database seeding with sample data available
 - Update this document as tasks are completed or requirements change.
 - Reference this checklist for progress tracking and next steps. 
