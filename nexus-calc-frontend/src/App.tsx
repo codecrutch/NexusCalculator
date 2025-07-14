@@ -5,6 +5,7 @@ import { useAuth } from './context/AuthContext';
 import { formatUsername } from './utils/formatUsername';
 import React, { useState, useRef, useEffect } from 'react';
 import DisplayUsers from './pages/DisplayUsers';
+import ResetPassword from './pages/ResetPassword';
 
 export default function App() {
   const { user, logout } = useAuth();
@@ -82,6 +83,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/users" element={<DisplayUsers />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </BrowserRouter>
   );

@@ -127,4 +127,8 @@ export class AuthService {
     });
     return this.userRepository.save(user);
   }
+
+  async findUserByEmail(email: string): Promise<User | null> {
+    return this.userRepository.findOne({ where: { email } });
+  }
 }

@@ -9,6 +9,7 @@ import {
   Res,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { PasswordResetService } from './password-reset.service';
 import { LocalAuthGuard } from './local-auth.guard';
 import { CreateUserDto } from '../user/dto/create-user.dto';
 import { LoginDto } from './dto/login.dto';
@@ -22,6 +23,7 @@ import { Response } from 'express';
 export class AuthController {
   constructor(
     private authService: AuthService,
+    private passwordResetService: PasswordResetService,
     private jwtService: JwtService,
   ) {}
 
@@ -36,6 +38,11 @@ export class AuthController {
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
+  }
+
+  @Post('reset-password')
+  async resetPassword(@Body('email') email: string) {
+    return this.passwordResetService.generateResetToken(email);
   }
 
   @Get('google')

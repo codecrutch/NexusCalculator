@@ -138,6 +138,9 @@ export default function Login() {
             )}
           </button>
         </div>
+        <div className="flex justify-end mb-2">
+          <Link to="/reset-password" className="text-green-700 text-sm hover:underline">Forgot password?</Link>
+        </div>
         {error && <div className="text-red-600 mb-4 text-center">{error}</div>}
         <button className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-full text-lg transition-colors mt-2" type="submit">Login</button>
         <button

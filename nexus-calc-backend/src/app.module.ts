@@ -9,6 +9,7 @@ import { User } from './entities/user.entity';
 import { Character } from './entities/character.entity';
 import { Creature } from './entities/creature.entity';
 import { Cave } from './entities/cave.entity';
+import { PasswordResetToken } from './auth/entities/password-reset-token.entity';
 import { UserModule } from './user/user.module';
 import { CharacterModule } from './character/character.module';
 import { CreatureModule } from './creature/creature.module';
@@ -36,7 +37,13 @@ import { AuthModule } from './auth/auth.module';
       }),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([User, Character, Creature, Cave]),
+    TypeOrmModule.forFeature([
+      User,
+      Character,
+      Creature,
+      Cave,
+      PasswordResetToken,
+    ]),
     UserModule,
     CharacterModule,
     CreatureModule,

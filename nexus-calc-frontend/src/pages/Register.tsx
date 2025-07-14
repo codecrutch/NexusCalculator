@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { register as registerApi, login as loginApi } from '../api/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { AxiosError } from 'axios';
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -23,8 +24,13 @@ export default function Register() {
       const data = await loginApi(email, password);
       login(data.access_token, { ...data.user, permissions: data.user.permissions ?? [] });
       navigate('/');
-    } catch {
-      setError('Registration failed');
+    } catch (err: unknown) {
+      const axiosErr = err as AxiosError<{ message?: string }>;
+      if (axiosErr?.response?.data?.message) {
+        setError(axiosErr.response.data.message);
+      } else {
+        setError('Registration failed');
+      }
     }
   }
 
