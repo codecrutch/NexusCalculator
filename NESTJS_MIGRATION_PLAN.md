@@ -202,7 +202,7 @@ npm install axios
 ### 5. Set Up API Base URL
 Create `.env` in the frontend root:
 ```
-VITE_API_URL=http://localhost:3000
+VITE_BACKEND_API_URL=http://localhost:3000
 ```
 
 ### 6. Set Up API Client
@@ -211,7 +211,7 @@ Create `src/api/client.ts`:
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_BACKEND_API_URL,
   headers: { 'Content-Type': 'application/json' },
 });
 ```

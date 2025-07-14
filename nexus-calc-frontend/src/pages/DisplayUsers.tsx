@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { useUserControllerFindAll } from '../api/users/users';
+import { useUserControllerFindAll } from '../generated/users/users';
 import { useAuth } from '../context/AuthContext';
 import { formatUsername } from '../utils/formatUsername';
 import { Navigate } from 'react-router-dom';

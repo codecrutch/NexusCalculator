@@ -1,11 +1,13 @@
-module.exports = {
+export default {
   api: {
-    input: 'http://localhost:3000/api-json', // Your NestJS OpenAPI endpoint
+    input: 'http://localhost:3000/api-json',
     output: {
       mode: 'tags-split',
-      target: './src/api/generated.ts',
-      schemas: './src/api/model',
+      target: 'src/generated/generated.ts',
+      schemas: 'src/generated/models',
       client: 'react-query',
+      mock: true,
+      baseUrl: 'http://localhost:3000',
     },
   },
 };

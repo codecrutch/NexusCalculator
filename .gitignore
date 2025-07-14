@@ -84,6 +84,7 @@ node_modules
 dist
 nexus-calc-backend/dist
 nexus-calc-frontend/dist
+nexus-calc-frontend/src/generated
 .env
 .env.*
 !.env.example

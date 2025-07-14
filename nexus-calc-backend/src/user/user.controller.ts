@@ -34,7 +34,7 @@ export class UserController {
   @Get()
   findAll(@Request() req: ExpressRequest & { user: User }) {
     const user = req.user;
-    if (!user.permissions || !user.permissions.includes('read_users')) {
+    if (!user.permissions || !user.permissions.includes('view:users')) {
       throw new ForbiddenException('You do not have permission to view users.');
     }
     return this.userService.findAll();

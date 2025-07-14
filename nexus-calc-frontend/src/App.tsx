@@ -3,7 +3,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import { useAuth } from './context/AuthContext';
 import { formatUsername } from './utils/formatUsername';
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import DisplayUsers from './pages/DisplayUsers';
 import ResetPassword from './pages/ResetPassword';
 
